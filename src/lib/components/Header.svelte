@@ -12,16 +12,25 @@
 
     <div class="card-paper"></div>
 
-        <img src={OrhcidLeft} in:fly={{ y: -30, duration: 1000 }} alt="" class="floral-decoration top-orchid"/>
-        <img src={OrhcidRight} in:fly={{ y: -30, duration: 1000 }} alt="" class="floral-decoration top-orchid-left"/>
+    <img src={OrhcidLeft} in:fly={{ y: -30, duration: 1000 }} alt="" class="floral-decoration top-orchid"/>
+    <img src={OrhcidRight} in:fly={{ y: -30, duration: 1000 }} alt="" class="floral-decoration top-orchid-left"/>
 
-        <div class="card-header">
-            <p class="card-save-date" in:fade={{ duration: 1000 }}>The Wedding Of</p>
-            <span class="beginning" in:fade={{ duration: 1000 }}>Cyrine & Jebrine</span>
-            <p class="card-save-date" in:fade={{ duration: 1000 }}>SAVE THE DATE</p>
-        
+    <div class="card-header">
+        <p class="card-save-date" in:fade={{ duration: 1000 }}>The Wedding Of</p>
+        <span class="beginning" in:fade={{ duration: 1000 }}>Cyrine & Jebrine</span>
+        <p class="card-save-date" in:fade={{ duration: 1000 }}>SAVE THE DATE</p>
+        <div class="wedding-date" in:fade={{ duration: 1200 }}>
+            <div class="date">
+                <span>13</span>
+                <div class="divider"></div>
+                <span>AUGUST</span>
+                <div class="divider"></div>
+                <span>2026</span>
+            </div>
         </div>
     </div>
+</div>
+    
 <style>
 
 
@@ -41,7 +50,6 @@
 .card-paper {
     position: absolute;
     inset: 0;
-
     background:
         radial-gradient(circle at top, rgba(255,255,255,.9), transparent 60%),
         linear-gradient(180deg,#fffdfb,#faf7f4);
@@ -88,6 +96,31 @@
     font-size: clamp(.8rem,1vw,1rem);
     letter-spacing: .35em;
     color: var(--accent);
+}
+
+/* ===========================
+   Wedding Date
+=========================== */
+
+
+.date {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.2rem;
+    margin-top: 1.2rem;
+	font-family: "Gothic A1", sans-serif;
+	font-size: 1.2rem;
+	font-weight: 500;
+	color: var(--accent);
+	letter-spacing: 2px;
+}
+
+.divider {
+	width: 1px;
+	height: 35px;
+	background: var(--accent);
+	opacity: 0.7;
 }
 
 </style>
