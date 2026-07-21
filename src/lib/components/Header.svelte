@@ -107,10 +107,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 1.2rem;
+	gap: 1rem;
     margin-top: 1.2rem;
-	font-family: "Gothic A1", sans-serif;
-	font-size: 1.2rem;
+	font-family: "Cinzel", serif;
+	font-size: 1.4rem;
 	font-weight: 500;
 	color: var(--accent);
 	letter-spacing: 2px;
