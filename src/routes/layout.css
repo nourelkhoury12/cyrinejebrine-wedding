@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap');
 
 :root {
   /* Backgrounds */
@@ -37,3 +36,79 @@
 }
 
 
+.page {
+		width: 100%;
+		min-height: 100vh;
+		background: white;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 2rem;
+		overflow: hidden;
+	}
+
+  .beginning {
+    font-family: "Monsieur La Doulaise", cursive;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: 1px;
+  }
+
+  .invited {
+    margin-top: 0.8rem;
+    font-family: "Gothic A1", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: var(--text-light);
+  }
+
+.open-btn {
+	margin-top: 2rem;
+	padding: 12px 35px;
+	border: 1px solid var(--primary);
+	background: transparent;
+	color: var(--primary-dark);
+	font-family: "Gothic A1", sans-serif;
+	font-size: 0.85rem;
+	font-weight: 500;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.open-btn:hover {
+	background: var(--primary);
+	color: white;
+	transform: translateY(-2px);
+}
+
+	.invitation-text {
+		margin-bottom: 2.5rem;
+	}
+
+
+
+	.forever {
+		font-style: italic;
+	}
+
+
+	.envelope {
+		width: min(80%, 320px);
+		cursor: pointer;
+		filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.08));
+	}
+
+	
+
+	.open-btn:hover {
+		background: #b58b7a;
+		color: white;
+		transform: translateY(-2px);
+	}
