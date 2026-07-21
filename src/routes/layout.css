@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap');
+
+:root {
+  /* Backgrounds */
+  --background: #FCF8F5;
+  --surface: #FFFDFB;
+  --section: #F8F2EE;
+
+  /* Primary */
+  --primary: #C48A97;      /* Dusty rose */
+  --primary-light: #E8C7CF;
+  --primary-dark: #A96B79;
+
+  /* Accent */
+  --accent: #C8A36B;       /* Soft champagne gold */
+  --accent-light: #E6D5B8;
+
+  /* Text */
+  --text: #4A3E3E;
+  --text-light: #8B7B7B;
+
+  /* Borders */
+  --border: #EADFD9;
+
+  /* Flowers */
+  --rose: #E6B7C2;
+  --orchid: #F7F5F2;
+  --leaf: #A9B59A;
+
+  /* Buttons */
+  --button: #C48A97;
+  --button-hover: #B57784;
+  --button-text: #FFFFFF;
+}
+
+
