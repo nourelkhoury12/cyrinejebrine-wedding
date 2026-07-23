@@ -1,6 +1,6 @@
 <script lang="ts">
 	import env1 from "$lib/assets/env1.png";
-	import env2 from "$lib/assets/env2.png";
+	import env3 from "$lib/assets/env2.png";
 
 	let isOpen = $state(false);
 
@@ -20,7 +20,7 @@
 		/>
 
 		<img
-			src={env2}
+			src={env3}
 			alt="Envelope seal"
 			class="env2"
 			onclick={openEnvelope}
