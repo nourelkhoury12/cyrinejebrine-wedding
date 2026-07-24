@@ -105,22 +105,8 @@
 
 		<!-- Submit Button -->
 		<div class="pt-6">
-			<button
-				type="submit"
-				class="flex w-full items-center justify-center gap-2 rounded bg-[#c48b8b] py-3 text-lg font-normal text-white shadow-sm transition-all hover:bg-[#b37878] active:scale-[0.98]"
-			>
+			<button type="submit">
 				<span>Confirm your seats</span>
-				<!-- Paper Plane Icon -->
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-					fill="currentColor"
-					class="h-5 w-5 rotate-45"
-				>
-					<path
-						d="M3.4 20.4l17.45-7.48a1 1 0 000-1.84L3.4 3.6a.993.993 0 00-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"
-					/>
-				</svg>
 			</button>
 		</div>
 	</form>

@@ -3,114 +3,69 @@
 
 
 :root {
-  /* Backgrounds */
-  --background: #FCF8F5;
-  --surface: #FFFDFB;
-  --section: #F8F2EE;
-
-  /* Primary */
-  --primary: #C48A97;      /* Dusty rose */
-  --primary-light: #E8C7CF;
-  --primary-dark: #A96B79;
-
-  /* Accent */
-  --accent: #C8A36B;       /* Soft champagne gold */
-  --accent-light: #E6D5B8;
-
-  /* Text */
-  --text: #4A3E3E;
-  --text-light: #8B7B7B;
-
-  /* Borders */
-  --border: #EADFD9;
-
-  /* Flowers */
-  --rose: #E6B7C2;
-  --orchid: #F7F5F2;
-  --leaf: #A9B59A;
-
-  /* Buttons */
-  --button: #C48A97;
-  --button-hover: #B57784;
-  --button-text: #FFFFFF;
+	--primary: #964b54;
+	--secondary: #b28287;
+	--accent: #c48b8b;
 }
 
+h2{
+	color: var(--primary);
+	letter-spacing: 0.05em; 
+	
+	font-weight: 400; 
+	line-height: 1.25; 
+}
 
+.h4{
+	font-size: 1.5rem; 
+	font-weight: 400; 
+	color: var(--primary)
+}
 
-
-.page {
-		width: 100%;
-		min-height: 100vh;
-		background: white;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		padding: 2rem;
-		overflow: hidden;
-	}
-
-  .beginning {
-    font-family: "Monsieur La Doulaise", cursive;
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 400;
-    color: var(--text);
-    letter-spacing: 1px;
+@media (min-width: 640px) {
+  .title {
+    font-size: 1.875rem; 
   }
-
-  .invited {
-    margin-top: 0.8rem;
-    font-family: "Gothic A1", sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    color: var(--text-light);
-  }
-
-.open-btn {
-	margin-top: 2rem;
-	padding: 12px 35px;
-	border: 1px solid var(--primary);
-	background: transparent;
-	color: var(--primary-dark);
-	font-family: "Gothic A1", sans-serif;
-	font-size: 0.85rem;
-	font-weight: 500;
-	letter-spacing: 3px;
-	text-transform: uppercase;
-	cursor: pointer;
-	transition: all 0.3s ease;
 }
 
-.open-btn:hover {
-	background: var(--primary);
-	color: white;
-	transform: translateY(-2px);
+.h5 {
+	color: var(--secondary);
+	font-size: 16px;
+	line-height:  1.625 ;
 }
 
-	.invitation-text {
-		margin-bottom: 2.5rem;
-	}
+.subtitle {
+  font-size: 0.75rem; 
+  color: #a09e9e;
+  margin-top: 0.25rem; 
+  font-family: sans-serif; 
+  font-weight: 300; 
+}
 
+button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; 
+  border: none;
+  border-radius: 0.25rem; 
+  background-color: #c48b8b;
+  padding: 0.75rem 0;
+  font-size: 1.125rem; 
+  font-weight: 400;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
 
+button:hover {
+  background-color: #b37878;
+}
 
-	.forever {
-		font-style: italic;
-	}
-
-
-	.envelope {
-		width: min(80%, 320px);
-		cursor: pointer;
-		filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.08));
-	}
+button:active {
+  transform: scale(0.98);
+}
 
 	
-
-	.open-btn:hover {
-		background: #b58b7a;
-		color: white;
-		transform: translateY(-2px);
-	}
