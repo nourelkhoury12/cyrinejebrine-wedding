@@ -5,13 +5,11 @@
 	let isOpen = $state(false);
 
 	function handleOpen(e?: Event) {
-		// Prevent double-firing if both touchstart and click trigger on mobile
 		if (e) e.preventDefault();
 		if (isOpen) return;
 		
 		isOpen = true;
 
-		// Navigate to your invitation page after the animation finishes
 		setTimeout(() => {
 			goto('/invitation');
 		}, 1200);
@@ -24,20 +22,26 @@
 	<!-- LEFT PANEL -->
 	<div class="envelope-half panel-left">
 		<svg class="fold-lines" viewBox="0 0 50 100" preserveAspectRatio="none">
-			<line x1="0" y1="0" x2="50" y2="50" class="line" />
-			<line x1="0" y1="100" x2="50" y2="50" class="line" />
+			<!-- Shadow Line -->
+			<line x1="0" y1="1" x2="50" y2="51" class="line-shadow" />
+			<!-- Main Line -->
+			<line x1="0" y1="0" x2="50" y2="50" class="line-main" />
+			<line x1="0" y1="100" x2="50" y2="50" class="line-main" />
 		</svg>
 	</div>
 
 	<!-- RIGHT PANEL -->
 	<div class="envelope-half panel-right">
 		<svg class="fold-lines" viewBox="50 0 50 100" preserveAspectRatio="none">
-			<line x1="100" y1="0" x2="50" y2="50" class="line" />
-			<line x1="100" y1="100" x2="50" y2="50" class="line" />
+			<!-- Shadow Line -->
+			<line x1="100" y1="1" x2="50" y2="51" class="line-shadow" />
+			<!-- Main Line -->
+			<line x1="100" y1="0" x2="50" y2="50" class="line-main" />
+			<line x1="100" y1="100" x2="50" y2="50" class="line-main" />
 		</svg>
 	</div>
 
-	<!-- WAX SEAL BUTTON (TOUCH & CLICK SUPPORTED) -->
+	<!-- WAX SEAL BUTTON -->
 	<button 
 		type="button" 
 		class="seal-button" 
@@ -55,7 +59,7 @@
 		position: fixed;
 		inset: 0;
 		width: 100vw;
-		height: 100dvh; /* dvh ensures proper height calculation on mobile browsers */
+		height: 100dvh;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -67,18 +71,20 @@
 		pointer-events: none;
 	}
 
+	/* Envelope panels set to Cloud White (#f9f9fb) */
 	.envelope-half {
 		position: absolute;
 		top: 0;
 		bottom: 0;
 		width: 50vw;
 		height: 100%;
-		background-color: #3d473c;
+		background-color: #f9f9fb; /* Cloud White */
 		transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 		will-change: transform;
 		z-index: 1;
 	}
 
+	/* Removed box-shadow to eliminate vertical center line */
 	.panel-left {
 		left: 0;
 		transform: translateX(0);
@@ -92,10 +98,18 @@
 	.fold-lines {
 		width: 100%;
 		height: 100%;
+		filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.15));
 	}
 
-	.line {
-		stroke: rgba(255, 255, 255, 0.12);
+	/* Rose fold line color matching your wax seal accent */
+	.line-main {
+		stroke: rgba(216, 161, 178, 0.6);
+		stroke-width: 1.5;
+		vector-effect: non-scaling-stroke;
+	}
+
+	.line-shadow {
+		stroke: rgba(0, 0, 0, 0.08);
 		stroke-width: 1.5;
 		vector-effect: non-scaling-stroke;
 	}
@@ -109,13 +123,10 @@
 		padding: 0;
 		margin: 0;
 		cursor: pointer;
-		
-		/* Important Mobile Touches & Highlights Fixes */
 		touch-action: manipulation;
 		-webkit-tap-highlight-color: transparent;
 		-webkit-touch-callout: none;
 		user-select: none;
-		
 		transition: opacity 0.6s ease, transform 0.6s ease;
 	}
 
@@ -127,16 +138,16 @@
 	}
 
 	.seal-image {
-		width: 120px; /* Slightly smaller for better mobile scaling */
+		width: 130px;
 		height: auto;
 		display: block;
-		pointer-events: none; /* Passes touch directly to button */
+		pointer-events: none;
 		user-select: none;
 		-webkit-user-drag: none;
-		filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+		filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.2));
 	}
 
-	/* SLIDE ANIMATION RULES */
+	/* SLIDE ANIMATION */
 	.envelope-overlay.is-open .panel-left {
 		transform: translateX(-100%) !important;
 	}
