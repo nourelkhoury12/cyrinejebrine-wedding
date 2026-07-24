@@ -8,17 +8,10 @@
 
 
 <div class="min-h-screen bg-neutral-100 p-0 md:py-10 md:px-6 flex flex-col items-center">
-    
     <div class="w-full max-w-md bg-white shadow-2xl rounded-none md:rounded-lg overflow-hidden">
-        
-       <Header/>
-
-
-            
+       	<Header/> 
         <CountDown/>
 		<Venue/>
 		<RSVP/>
-
     </div>
-
 </div>
