@@ -2,6 +2,8 @@
     import BgImage from "$lib/assets/backgd.png";
     import CountDown from "$lib/compoments/CountDown.svelte";
 	import Header from "$lib/compoments/Header.svelte"
+  import RSVP from "$lib/compoments/RSVP.svelte";
+  	import Venue from "$lib/compoments/Venue.svelte";
 </script>
 
 
@@ -14,7 +16,8 @@
 
             
         <CountDown/>
-      
+		<Venue/>
+		<RSVP/>
 
     </div>
 
