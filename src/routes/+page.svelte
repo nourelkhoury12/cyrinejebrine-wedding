@@ -4,13 +4,16 @@
 
 	let isOpen = $state(false);
 
-	function handleOpen() {
+	function handleOpen(e?: Event) {
+		// Prevent double-firing if both touchstart and click trigger on mobile
+		if (e) e.preventDefault();
 		if (isOpen) return;
+		
 		isOpen = true;
 
-		// Wait 1.2s for the splitting animation to complete, then navigate
+		// Navigate to your invitation page after the animation finishes
 		setTimeout(() => {
-			goto('/invitation'); // 👈 Change '/invitation' to your target route
+			goto('/invitation');
 		}, 1200);
 	}
 </script>
@@ -34,11 +37,12 @@
 		</svg>
 	</div>
 
-	<!-- WAX SEAL TRIGGER -->
+	<!-- WAX SEAL BUTTON (TOUCH & CLICK SUPPORTED) -->
 	<button 
 		type="button" 
 		class="seal-button" 
 		onclick={handleOpen}
+		ontouchstart={handleOpen}
 		aria-label="Open Envelope"
 	>
 		<img src={waxSeal} alt="Wax Seal" class="seal-image" />
@@ -51,7 +55,7 @@
 		position: fixed;
 		inset: 0;
 		width: 100vw;
-		height: 100dvh;
+		height: 100dvh; /* dvh ensures proper height calculation on mobile browsers */
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -69,7 +73,7 @@
 		bottom: 0;
 		width: 50vw;
 		height: 100%;
-		background-color: #ffffff;
+		background-color: #3d473c;
 		transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 		will-change: transform;
 		z-index: 1;
@@ -91,7 +95,7 @@
 	}
 
 	.line {
-		stroke: rgba(236, 72, 195, 0.12);
+		stroke: rgba(255, 255, 255, 0.12);
 		stroke-width: 1.5;
 		vector-effect: non-scaling-stroke;
 	}
@@ -105,7 +109,13 @@
 		padding: 0;
 		margin: 0;
 		cursor: pointer;
+		
+		/* Important Mobile Touches & Highlights Fixes */
+		touch-action: manipulation;
 		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		user-select: none;
+		
 		transition: opacity 0.6s ease, transform 0.6s ease;
 	}
 
@@ -117,14 +127,16 @@
 	}
 
 	.seal-image {
-		width: 140px;
+		width: 120px; /* Slightly smaller for better mobile scaling */
 		height: auto;
 		display: block;
+		pointer-events: none; /* Passes touch directly to button */
 		user-select: none;
+		-webkit-user-drag: none;
 		filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 	}
 
-	/* SLIDE SPLIT ANIMATIONS */
+	/* SLIDE ANIMATION RULES */
 	.envelope-overlay.is-open .panel-left {
 		transform: translateX(-100%) !important;
 	}
