@@ -8,7 +8,7 @@
 </script>
 
 <!-- Countdown Section Container (Original spacing & centering restored) -->
-<div class="w-full bg-white text-center pt-10 pb-4 px-4 font-serif overflow-hidden">
+<div class="w-full bg-white text-center pt-16 pb-4 px-4 font-serif overflow-hidden">
     
     <!-- Heading -->
     <h2 class="text-2xl sm:text-3xl text-[#964b54] tracking-wider uppercase font-normal leading-tight">
