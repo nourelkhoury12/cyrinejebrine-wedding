@@ -1,6 +1,6 @@
-<section class="py-20 px-6">
+
 	<div
-		class="mx-auto max-w-3xl rounded-[35px] border border-[#eadedf] bg-white p-10 shadow-[0_20px_50px_rgba(196,138,151,0.12)]"
+		class="mx-auto max-w-3xl   bg-white p-10 shadow-[0_20px_50px_rgba(196,138,151,0.12)]"
 	>
 		<h2 class="text-center font-serif text-4xl text-[#A96B79]">
 			Liste de Mariage
@@ -26,4 +26,3 @@
 			
 		</div>
 	</div>
-</section>
