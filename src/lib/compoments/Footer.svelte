@@ -10,8 +10,7 @@
 </footer>
 
 <style>
-    .footer {
-
+.footer {
 	padding: 2rem 1rem;
 	text-align: center;
 	background: #fff;
@@ -20,7 +19,6 @@
 
 .footer p {
 	margin: 0.35rem 0;
-	font-family: Georgia, "Times New Roman", serif;
 	font-size: 0.95rem;
 	color: #8b7b7c;
 	letter-spacing: 0.3px;

@@ -8,7 +8,7 @@
 </script>
 
 
-<div class="w-full bg-white text-center pt-16 pb-4 px-4 font-serif overflow-hidden">
+<div class="w-full bg-white text-center pt-16 pb-4 px-4 overflow-hidden">
     <h2 class="text-2xl sm:text-3xl ">
         Counting Down to<br />Our Special Day
     </h2>

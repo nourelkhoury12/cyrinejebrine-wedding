@@ -22,7 +22,7 @@
 	}
 </script>
 
-<div class="mx-auto font-serif max-w-xlbg-white p-8 shadow-[0_20px_50px_rgba(196,138,151,0.15)] md:p-10">
+<div class="mx-auto max-w-xlbg-white p-8 shadow-[0_20px_50px_rgba(196,138,151,0.15)] md:p-10">
 	<!-- Chair -->
 	<div class="flex justify-center">
 		<img src={chairImg} alt="Wedding Chair" class="w-40 h-40 md:w-52 object-contain"/>

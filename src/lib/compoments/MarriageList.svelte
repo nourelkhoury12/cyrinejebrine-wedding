@@ -1,7 +1,7 @@
 <script lang="ts">
     import GiftOutlineIcon from '@iconify-svelte/solar/gift-outline';
 </script>
-<div class="mx-auto max-w-3xl font-serif  items-center text-center   bg-white p-10 shadow-[0_20px_50px_rgba(196,138,151,0.12)]">
+<div class="mx-auto max-w-3xl items-center text-center   bg-white p-10 shadow-[0_20px_50px_rgba(196,138,151,0.12)]">
 	<h2 class="text-2xl sm:text-3xl mb-2">
 			Liste de Mariage
 	</h2>

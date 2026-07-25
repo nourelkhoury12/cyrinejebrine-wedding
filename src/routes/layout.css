@@ -1,11 +1,14 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-
 :root {
 	--primary: #964b54;
 	--secondary: #b28287;
 	--accent: #c48b8b;
+}
+
+body {
+	font-family: Georgia, "Times New Roman", serif;
 }
 
 h2{
