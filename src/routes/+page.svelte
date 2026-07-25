@@ -1,8 +1,9 @@
 <script lang="ts">
     import BgImage from "$lib/assets/backgd.png";
     import CountDown from "$lib/compoments/CountDown.svelte";
-	import Header from "$lib/compoments/Header.svelte"
-  import RSVP from "$lib/compoments/RSVP.svelte";
+	import Header from "$lib/compoments/Header.svelte";
+    import MarriageList from "$lib/compoments/MarriageList.svelte";
+    import RSVP from "$lib/compoments/RSVP.svelte";
   	import Venue from "$lib/compoments/Venue.svelte";
 </script>
 
@@ -12,6 +13,7 @@
        	<Header/> 
         <CountDown/>
 		<Venue/>
+        <MarriageList/>
 		<RSVP/>
     </div>
 </div>
