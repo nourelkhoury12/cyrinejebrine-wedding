@@ -1,4 +1,5 @@
 <script lang="ts">
+import LocationIcon from '@iconify-svelte/mdi/location';
 import mapImgSrc from "$lib/assets/map.png"
 	interface Props {
 		title?: string;
@@ -30,7 +31,7 @@ import mapImgSrc from "$lib/assets/map.png"
 		rel="noopener noreferrer"
 		class="inline-flex items-center justify-center gap-2.5 rounded bg-[#c48b8b] px-6 py-3 text-lg font-sans text-white transition-all hover:bg-[#b37878] active:scale-95 shadow-sm"
 	>
-		
+		<LocationIcon height="1.5em" />
 		<span>Open google maps</span>
 	</a>
 </div>
