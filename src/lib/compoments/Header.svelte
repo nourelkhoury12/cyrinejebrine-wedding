@@ -14,7 +14,7 @@
 {#if visible}
     <div
         class="invitation"
-        in:fade={{ duration: 2000 }}
+        in:fade={{ duration: 3000 }}
     >
         <img
             src={BgImage}
