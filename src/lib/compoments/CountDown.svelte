@@ -1,12 +1,44 @@
 <script lang="ts">
     import FloralClockImg from "$lib/assets/clock.png";
+    import { onMount } from "svelte";
 
-    let days = 36;
-    let hours = 39;
-    let minutes = 11;
-    let seconds = 54;
+    const weddingDate: Date = new Date("2026-09-13T20:00:00+03:00");
+
+    let days = $state("00");
+    let hours = $state("00");
+    let minutes = $state("00");
+    let seconds = $state("00");
+
+    function format(value: number): string {
+        return value.toString().padStart(2, "0");
+    }
+
+    function updateCountdown(): void {
+        const now = Date.now();
+        const distance = weddingDate.getTime() - now;
+
+        if (distance <= 0) {
+            days = "00";
+            hours = "00";
+            minutes = "00";
+            seconds = "00";
+            return;
+        }
+
+        days = format(Math.floor(distance / (1000 * 60 * 60 * 24)));
+        hours = format(Math.floor((distance / (1000 * 60 * 60)) % 24));
+        minutes = format(Math.floor((distance / (1000 * 60)) % 60));
+        seconds = format(Math.floor((distance / 1000) % 60));
+    }
+
+    onMount(() => {
+        updateCountdown();
+
+        const interval = setInterval(updateCountdown, 1000);
+
+        return () => clearInterval(interval);
+    });
 </script>
-
 
 <div class="w-full bg-white text-center pt-16 pb-4 px-4 overflow-hidden">
     <h2 class="text-2xl sm:text-3xl ">
