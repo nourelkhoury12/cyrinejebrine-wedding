@@ -32,7 +32,7 @@
 			href="tel:+96170123456"
 			class="mt-3 text-xl font-semibold text-[#964b54] transition hover:text-[#7c3942]"
 		>
-			+961 70 123 456
+			+961 76 164 422
 		</a>
 
 		
