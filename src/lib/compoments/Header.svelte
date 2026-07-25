@@ -1,19 +1,31 @@
 <script lang="ts">
     import BgImage from "$lib/assets/backgd.png";
+  import { onMount } from "svelte";
+    import { fade, fly } from 'svelte/transition';
+    let visible = $state(false);
+
+    onMount(() => {
+        // Wait 3 seconds before hiding the language selector
+        setTimeout(() => {
+            visible = true;
+        }, 500);
+    });
 </script>
 
 <div class="invitation">
+{#if visible}
     <img src={BgImage}  alt="Wedding Background" class="background" />
     <div class="overlay"></div>
 
     <div class="content">
-        <div class="top-bar">
+    
+        <div class="top-bar" in:fly={{ y: 200, duration: 2000 }} out:fade>
             <div class="language">
                 <span class="active">En</span>
                 <span>Ar </span>
             </div>
         </div>
-
+   
         <div class="center">
             <div class="glass">
                 <p class="quote">
@@ -37,7 +49,10 @@
                 </div>
             </div>
         </div>
+    
+
     </div>
+    {/if}
 </div>
 
 <style>
