@@ -16,7 +16,7 @@ import mapImgSrc from "$lib/assets/map.png"
 </script>
 
 <div class="mx-auto flex max-w-md flex-col items-center p-6 text-center font-serif">
-	<h2 class="mb-2 text-2xl  sm:text-3xl">WEDDING VENUE</h2>
+	<h2 class="mb-2 text-2xl  sm:text-3xl">Wedding Venue</h2>
 
 	<p class="mb-6 text-lg h5">Green Land Akkar -Edbel</p>
 
