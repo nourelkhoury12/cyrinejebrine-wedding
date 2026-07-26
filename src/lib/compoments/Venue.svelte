@@ -29,7 +29,7 @@ import mapImgSrc from "$lib/assets/map.png"
 		href={googleMapsUrl}
 		target="_blank"
 		rel="noopener noreferrer"
-		class="inline-flex items-center justify-center gap-2.5 rounded bg-[#c48b8b] px-6 py-3 text-lg font-sans text-white transition-all hover:bg-[#b37878] active:scale-95 shadow-sm"
+		class="inline-flex items-center font-serif justify-center gap-2.5 rounded bg-[#c48b8b] px-6 py-3 text-lg  text-white transition-all hover:bg-[#b37878] active:scale-95 shadow-sm"
 	>
 		<LocationIcon height="1.5em" />
 		<span>Open google maps</span>
