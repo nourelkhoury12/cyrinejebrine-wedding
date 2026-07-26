@@ -18,7 +18,7 @@
 	</FadeIn>
 
 
-	<div class="grid gap-6 md:grid-cols-3">
+	<div class="grid gap-6">
 		<div class="grid gap-8 pt-2 text-center">
 			<div class="flex flex-col items-center">
 				<FadeIn>
