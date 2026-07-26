@@ -9,18 +9,59 @@
 	let guests = $state('1');
 	let message = $state('');
 
-	function handleSubmit(e: SubmitEvent) {
+	let submitting = $state(false);
+	let successMessage = $state('');
+	let errorMessage = $state('');
+
+	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
 
-		console.log({
-			fullName,
-			phoneNumber,
-			email,
-			attendance,
-			guests,
-			message
-		});
+		submitting = true;
+		successMessage = '';
+		errorMessage = '';
+
+		const data = {
+			name: fullName,
+			phone: phoneNumber,
+			email: email || null,
+			attend: attendance === 'accept',
+			guests: attendance === 'accept' ? Number(guests) : 0,
+			message: attendance === 'accept' ? message || null : null
+		};
+
+		try {
+			const response = await fetch('/api/reservations', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			});
+
+			const result = await response.json();
+
+			if (!response.ok) {
+				errorMessage = result.error || 'Something went wrong.';
+				return;
+			}
+
+			successMessage = 'Thank you! Your RSVP has been confirmed.';
+
+			// Reset form
+			fullName = '';
+			phoneNumber = '';
+			email = '';
+			attendance = 'accept';
+			guests = '1';
+			message = '';
+		} catch (error) {
+			console.error(error);
+			errorMessage = 'Unable to submit your RSVP. Please try again.';
+		} finally {
+			submitting = false;
+		}
 	}
+
 </script>
 
 <div class="mx-auto max-w-xlbg-white p-8 shadow-[0_20px_50px_rgba(196,138,151,0.15)] md:p-10">
@@ -48,6 +89,7 @@
 			<div class="h-px flex-1 bg-[#eadedf]"></div>
 		</div>
 	</FadeIn>
+
 	<form onsubmit={handleSubmit} class="space-y-7">
 		<!-- Name -->
 		<div class="relative">
@@ -57,6 +99,7 @@
 						id="name"
 						placeholder=" "
 						required
+						disabled={submitting}
 						bind:value={fullName}
 						class="peer w-full border-b-2 border-[#D9BCC4] bg-transparent pb-2 pt-6 text-[#5d4d50] outline-none transition focus:border-[#C48A97]"
 					/>
@@ -77,6 +120,7 @@
 					id="phone"
 					placeholder=" "
 					required
+					disabled={submitting}
 					bind:value={phoneNumber}
 					class="peer w-full border-b-2 border-[#D9BCC4] bg-transparent pb-2 pt-6 text-[#5d4d50] outline-none transition focus:border-[#C48A97]"
 				/>
@@ -97,6 +141,7 @@
 					type="email"
 					id="email"
 					placeholder=" "
+					disabled={submitting}
 					bind:value={email}
 					class="peer w-full border-b-2 border-[#D9BCC4] bg-transparent pb-2 pt-6 text-[#5d4d50] outline-none transition focus:border-[#C48A97]"
 				/>
@@ -122,6 +167,7 @@
 						value="accept"
 						name="attendance"
 						bind:group={attendance}
+						disabled={submitting}
 						class="h-5 w-5 accent-[#C48A97]"
 					/>
 
@@ -136,6 +182,7 @@
 						value="reject"
 						name="attendance"
 						bind:group={attendance}
+						disabled={submitting}
 						class="h-5 w-5 accent-[#C48A97]"
 					/>
 
@@ -146,19 +193,22 @@
 		</div>
 
 		<!-- Guests -->
+		 {#if attendance === 'accept'}
 		<div>
 			<FadeIn><label for="guests" class="mb-2 block text-lg font-serif text-[#A96B79]">Number of Guests</label></FadeIn>
 
 			<FadeIn>
-			<select bind:value={guests} class="w-full rounded-xl border border-[#eadedf] bg-[#fcf8f5] px-4 py-3 text-[#6E5A5E] outline-none focus:border-[#C48A97]">
+			<select disabled={submitting} bind:value={guests} class="w-full rounded-xl border border-[#eadedf] bg-[#fcf8f5] px-4 py-3 text-[#6E5A5E] outline-none focus:border-[#C48A97]">
 				<option value="1">1 Guest</option>
 				<option value="2">2 Guests</option>
 				<option value="3">3 Guests</option>
 			</select>
 			</FadeIn>
 		</div>
+		{/if}
 
 		<!-- Message -->
+		 {#if attendance === 'accept'}
 		<div>
 			<FadeIn><label for="msg" class="mb-2 block text-lg font-serif text-[#A96B79]">Message to the Couple</label></FadeIn>
 
@@ -171,12 +221,34 @@
 			></textarea>
 			</FadeIn>
 		</div>
+		{/if}
+
+		<!-- Success Message --> 
+		{#if successMessage} 
+		 	<FadeIn> 
+				<div class="rounded-xl border border-green-200 bg-green-50 p-4 text-center text-green-700" > 
+					{successMessage} 
+				</div> 
+			</FadeIn> 
+		{/if} 
+		<!-- Error Message --> 
+		{#if errorMessage} 
+			<FadeIn> 
+				<div class="rounded-xl border border-red-200 bg-red-50 p-4 text-center text-red-700" > 
+					{errorMessage} 
+				</div> 
+			</FadeIn> 
+		{/if}
 
 		<!-- Submit -->
 		<div class="pt-4">
 			<FadeIn>
 			<button type="submit" class="w-full rounded-full bg-[#C48A97] py-4 text-lg font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#B37786] hover:shadow-xl">
+				{#if submitting}
+					submitting...
+				{:else}
 				Confirm Your RSVP
+				{/if}
 			</button>
 			</FadeIn>
 		</div>
