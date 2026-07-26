@@ -1,11 +1,11 @@
 <script lang="ts">
     import BgImage from "$lib/assets/backgd.png";
-    import CountDown from "$lib/compoments/CountDown.svelte";
-  import Footer from "$lib/compoments/Footer.svelte";
-	import Header from "$lib/compoments/Header.svelte";
-    import MarriageList from "$lib/compoments/MarriageList.svelte";
-    import RSVP from "$lib/compoments/RSVP.svelte";
-  	import Venue from "$lib/compoments/Venue.svelte";
+    import CountDown from "$lib/components/CountDown.svelte";
+  import Footer from "$lib/components/Footer.svelte";
+	import Header from "$lib/components/Header.svelte";
+    import MarriageList from "$lib/components/MarriageList.svelte";
+    import RSVP from "$lib/components/RSVP.svelte";
+  	import Venue from "$lib/components/Venue.svelte";
 </script>
 
 

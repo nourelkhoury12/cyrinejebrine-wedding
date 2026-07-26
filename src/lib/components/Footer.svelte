@@ -1,12 +1,20 @@
-<footer class="footer">
-	<p>
-		© 2026 <span class="brand">bluProject </span>. All rights reserved.
-	</p>
+<script lang="ts">
+	import FadeIn from "$lib/components/FadeIn.svelte";
+</script>
 
+<footer class="footer">
+	<FadeIn>
+		<p>
+			© 2026 <span class="brand">bluProject </span>. All rights reserved.
+		</p>
+	</FadeIn>
+
+	<FadeIn>
 	<p class="collaboration">
 		In collaboration with
 		<span class="partner">NOLD Digital Wedding</span>
 	</p>
+	</FadeIn>
 </footer>
 
 <style>

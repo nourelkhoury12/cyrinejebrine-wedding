@@ -1,7 +1,7 @@
 <script lang="ts">
     import FloralClockImg from "$lib/assets/clock.png";
     import { onMount } from "svelte";
-    import FadeIn from "$lib/compoments/FadeIn.svelte";
+    import FadeIn from "$lib/components/FadeIn.svelte";
 
     const weddingDate: Date = new Date("2026-09-13T20:00:00+03:00");
 
