@@ -2,6 +2,8 @@
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
     import BgImage from "$lib/assets/backgd.png";
+    import { language } from "$lib/stores/languages";
+       import { translations } from "$lib/i18n/translations";
 
     let visible = $state(false);
 
@@ -12,75 +14,47 @@
 
 
 {#if visible}
-    <div
-        class="invitation"
-        in:fade={{ duration: 3000 }}
-    >
-        <img
-            src={BgImage}
-            alt="Wedding Background"
-            class="background"
-        />
-
+    <div class="invitation" in:fade={{ duration: 3000 }}>
+        <img src={BgImage} alt="Wedding Background" class="background"/>
         <div class="overlay"></div>
 
         <div class="content">
-
             <!-- Language Selector -->
-            <div class="top-bar">
+           <div class="top-bar">
                 <div class="language">
-                    <span class="active">En</span>
-                    <span>Ar</span>
+                    <!-- svelte-ignore a11y_click_events_have_key_events -->
+                    <!-- svelte-ignore a11y_no_static_element_interactions -->
+                    <span class:active={$language === "en"} onclick={() => language.set("en")}>
+                        En
+                    </span>
+                    <!-- svelte-ignore a11y_click_events_have_key_events -->
+                    <!-- svelte-ignore a11y_no_static_element_interactions -->
+                    <span class:active={$language === "ar"} onclick={() => language.set("ar")}>
+                        Ar
+                    </span>
                 </div>
             </div>
-
 
             <!-- Center Content -->
             <div class="center">
-
                 <div class="glass">
-
-                    <p class="quote">
-                        “May our hearts remain united in love,
-                        kindness and peace throughout our lives.”
-                    </p>
-
-
+                    <p class="quote">{translations[$language].quote}</p>
                     <div class="names">
-                        <h1>JEBRINE</h1>
-
-                        <div class="and">
-                            &
-                        </div>
-
-                        <h1>CYRINE</h1>
+                        <h1>{translations[$language].jebrine}</h1>
+                        <div class="and"> &</div>
+                        <h1>{translations[$language].cyrine}</h1>
                     </div>
-
 
                     <div class="date">
 
-                        <p>
-                            This Will Happen
-                        </p>
-
+                        <p>{translations[$language].this_will_happen}</p>
                         <div class="divider"></div>
-
-                        <h2>
-                            SUNDAY
-                        </h2>
-
+                        <h2>{translations[$language].sunday}</h2>
                         <div class="divider"></div>
-
-                        <h3>
-                            13&nbsp;&nbsp;•&nbsp;&nbsp;9&nbsp;&nbsp;•&nbsp;&nbsp;2026
-                        </h3>
-
+                        <h3>13&nbsp;&nbsp;•&nbsp;&nbsp;9&nbsp;&nbsp;•&nbsp;&nbsp;2026</h3>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     </div>
 {/if}

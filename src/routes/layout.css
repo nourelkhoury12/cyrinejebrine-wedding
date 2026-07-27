@@ -14,7 +14,6 @@ body {
 h2{
 	color: var(--primary);
 	letter-spacing: 0.05em; 
-	
 	font-weight: 400; 
 	line-height: 1.25; 
 }
@@ -38,29 +37,29 @@ h2{
 }
 
 .subtitle {
-  font-size: 0.75rem; 
-  color: #a09e9e;
-  margin-top: 0.25rem; 
-  font-family: sans-serif; 
-  font-weight: 300; 
+    font-size: 0.75rem; 
+    color: #a09e9e;
+    margin-top: 0.25rem; 
+    font-family: sans-serif; 
+    font-weight: 300; 
 }
 
 button {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem; 
-  border: none;
-  border-radius: 0.25rem; 
-  background-color: #c48b8b;
-  padding: 0.75rem 0;
-  font-size: 1.125rem; 
-  font-weight: 400;
-  color: white;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; 
+    border: none;
+    border-radius: 0.25rem; 
+    background-color: #c48b8b;
+    padding: 0.75rem 0;
+    font-size: 1.125rem; 
+    font-weight: 400;
+    color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
@@ -71,4 +70,43 @@ button:active {
   transform: scale(0.98);
 }
 
-	
+.Card{
+	font-family: "Roboto", sans-serif;
+	border-radius:24px;
+	border:1px solid rgba(85,107,79,.12);
+	box-shadow: 0 20px 45px rgba(0,0,0,.05);
+}
+
+.badge-success {
+    font-size:12px;
+    border-radius: 12px;
+    padding-inline: 12px;
+    padding-block: 4px;
+    background-color: rgba(0, 202, 0, 0.507);
+    color:rgb(0, 94, 0);
+    border: 1px solid rgb(0, 94, 0);
+
+}
+
+.badge-failed {
+    font-size:12px;
+    border-radius: 12px;
+    padding-inline: 12px;
+    padding-block: 4px;
+    background-color: rgba(223, 0, 0, 0.61);
+    color:rgb(141, 0, 0);
+    border: 1px solid rgb(112, 0, 0);
+
+}
+
+@media (max-width:768px){
+
+    .Card{
+        padding:1.5rem;
+    }
+
+    table{
+        min-width:850px;
+    }
+
+}
