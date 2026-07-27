@@ -1,7 +1,7 @@
 <script lang="ts">
 	import chairImg from '$lib/assets/chair.png';
 	import FadeIn from "$lib/components/FadeIn.svelte"
-import { language } from "$lib/stores/languages";
+	import { language } from "$lib/stores/languages";
     import { translations } from "$lib/i18n/translations";
 
 	let fullName = $state('');
@@ -98,202 +98,60 @@ import { language } from "$lib/stores/languages";
 		<!-- Name -->
 		<div class="relative">
 			<FadeIn>
-				<input type="text" id="name" placeholder=" " required disabled={submitting} bind:value={fullName}
-						class="
-						peer w-full bg-transparent
-						border-b-2 border-[#D9BCC4]
-						pb-2 pt-6
-						text-[#5d4d50]
-						outline-none
-						transition
-						focus:border-[#C48A97]
-					"/>
-
-					<label for="name" class="
-						absolute top-4
-						text-[#B88D93]
-						transition-all
-
-						peer-placeholder-shown:translate-y-0
-						peer-placeholder-shown:scale-100
-
-						peer-focus:-translate-y-4
-						peer-focus:scale-75
-
-						"
-						class:left-0={$language !== 'ar'}
-						class:right-0={$language === 'ar'}
-						>
-							{translations[$language].full_name}
-					</label>
+				<input type="text" id="name" placeholder=" " required disabled={submitting} bind:value={fullName} class="form-input peer"/>
+				<label for="name" class="form-label" class:left-0={$language !== 'ar'} class:right-0={$language === 'ar'}>
+					{translations[$language].full_name}
+				</label>
 			</FadeIn>
 
 		</div>
 		
 		<!-- PHONE -->
 		<div class="relative">
-		<FadeIn>
-			<input
-				type="tel"
-				id="phone"
-				placeholder=" "
-				required
-				disabled={submitting}
-				bind:value={phoneNumber}
-				class="
-				peer w-full bg-transparent
-				border-b-2 border-[#D9BCC4]
-				pb-2 pt-6
-				text-[#5d4d50]
-				outline-none
-				transition
-				focus:border-[#C48A97]
-			"
-			/>
-
-
-			<label
-				for="phone"
-				class="
-				absolute top-4
-				text-[#B88D93]
-				transition-all
-
-				peer-placeholder-shown:translate-y-0
-				peer-placeholder-shown:scale-100
-
-				peer-focus:-translate-y-4
-				peer-focus:scale-75
-				"
-				class:left-0={$language !== 'ar'}
-				class:right-0={$language === 'ar'}
-			>
-				{translations[$language].phone_number}
-			</label>
-
+			<FadeIn>
+				<input type="tel" id="phone" placeholder=" " required disabled={submitting} bind:value={phoneNumber} class="form-input peer"/>
+				<label for="phone"class="form-label" class:left-0={$language !== 'ar'} class:right-0={$language === 'ar'}>
+					{translations[$language].phone_number}
+				</label>
 			</FadeIn>
 		</div>
 
 		<!-- EMAIL -->
 		<div class="relative">
-
-		<FadeIn>
-		<input type="email" id="email" placeholder=" " disabled={submitting} bind:value={email}
-			class="
-			peer w-full bg-transparent
-			border-b-2 border-[#D9BCC4]
-			pb-2 pt-6
-			text-[#5d4d50]
-			outline-none
-			transition
-			focus:border-[#C48A97]
-		"
-		/>
-
-
-		<label
-			for="email"
-			class="
-			absolute top-4
-			text-[#B88D93]
-			transition-all
-
-			peer-placeholder-shown:translate-y-0
-			peer-placeholder-shown:scale-100
-
-			peer-focus:-translate-y-4
-			peer-focus:scale-75
-			"
-			class:left-0={$language !== 'ar'}
-			class:right-0={$language === 'ar'}
-		>
-			{translations[$language].email}
-		</label>
-
-		</FadeIn>
-
+			<FadeIn>
+				<input type="email" id="email" placeholder=" " disabled={submitting} bind:value={email} class="form-input peer"/>
+				<label for="email" class="form-label" class:left-0={$language !== 'ar'} class:right-0={$language === 'ar'}>
+					{translations[$language].email}
+				</label>
+			</FadeIn>
 		</div>
 
 		<!-- Attendance -->
 		<div>
-
 			<FadeIn>
-				<h3 dir={$language === 'ar' ? 'rtl' : 'ltr'} class="mb-4 text-xl font-serif text-[#A96B79]" >
+				<label for="attendance" dir={$language === 'ar' ? 'rtl' : 'ltr'} class="my-4 text-[#b88d93]" >
 					{translations[$language].attendance}
-				</h3>
+				</label>
 			</FadeIn>
 
 			<div class="space-y-4">
 				<FadeIn>
+					<label class=" flex cursor-pointer items-center gap-3 rounded-xl border border-[#eadedf] p-4 transition hover:border-[#C48A97]">
+						<input type="radio" value="accept" name="attendance" bind:group={attendance} disabled={submitting} class="h-5 w-5 accent-[#C48A97]"/>
+						<span class="text-[#6E5A5E]">
+							{translations[$language].accept}
+						</span>
+					</label>
+				</FadeIn>
 
-					<label
-						class="
-						flex cursor-pointer
-						items-center gap-3
-						rounded-xl
-						border border-[#eadedf]
-						p-4
-						transition
-						hover:border-[#C48A97]
-					"
-					>
-
-			<input
-				type="radio"
-				value="accept"
-				name="attendance"
-				bind:group={attendance}
-				disabled={submitting}
-				class="h-5 w-5 accent-[#C48A97]"
-			/>
-
-
-			<span class="text-[#6E5A5E]">
-				{translations[$language].accept}
-			</span>
-
-
-			</label>
-
-			</FadeIn>
-
-
-
-
-			<FadeIn>
-
-			<label
-				class="
-				flex cursor-pointer
-				items-center gap-3
-				rounded-xl
-				border border-[#eadedf]
-				p-4
-				transition
-				hover:border-[#C48A97]
-			"
-			>
-
-			<input
-				type="radio"
-				value="reject"
-				name="attendance"
-				bind:group={attendance}
-				disabled={submitting}
-				class="h-5 w-5 accent-[#C48A97]"
-			/>
-
-
-			<span class="text-[#6E5A5E]">
-				{translations[$language].decline}
-			</span>
-
-
-			</label>
-
-			</FadeIn>
-
-
+				<FadeIn>
+					<label class="flex cursor-pointer items-center gap-3 rounded-xl border border-[#eadedf] p-4 transition hover:border-[#C48A97]">
+						<input type="radio" value="reject" name="attendance" bind:group={attendance} disabled={submitting} class="h-5 w-5 accent-[#C48A97]"/>
+						<span class="text-[#6E5A5E]">
+							{translations[$language].decline}
+						</span>
+					</label>
+				</FadeIn>
 			</div>
 		</div>
 		
@@ -301,24 +159,13 @@ import { language } from "$lib/stores/languages";
 		{#if attendance === 'accept'}
 			<div>
 				<FadeIn>
-					<label dir={$language === 'ar' ? 'rtl' : 'ltr'} for="guests" class="mb-2 block text-lg font-serif text-[#A96B79]">
+					<label dir={$language === 'ar' ? 'rtl' : 'ltr'} for="guests" class="mb-2 block text-[#A96B79]">
 						{translations[$language].guests}
 					</label>
 				</FadeIn>
 
 				<FadeIn>
-					<select id="guests" disabled={submitting} bind:value={guests}
-							class="
-							w-full rounded-xl
-							border border-[#eadedf]
-							bg-[#fcf8f5]
-							px-4 py-3
-							text-[#6E5A5E]
-							outline-none
-							focus:border-[#C48A97]
-						"
-						>
-
+					<select id="guests" class="form-select" bind:value={guests} disabled={submitting}>
 						<option value="1">1 {translations[$language].guest}</option>
 						<option value="2">2 {translations[$language].guests_text}</option>
 						<option value="3">3 {translations[$language].guests_text}</option>
@@ -331,30 +178,13 @@ import { language } from "$lib/stores/languages";
 		{#if attendance === 'accept'}
 			<div>
 				<FadeIn>
-				<label dir={$language === 'ar' ? 'rtl' : 'ltr'} for="msg" class="mb-2 block text-lg font-serif text-[#A96B79]">
-					{translations[$language].message}
-				</label>
+					<label dir={$language === 'ar' ? 'rtl' : 'ltr'} for="msg" class="mb-2 block text-lg font-serif text-[#A96B79]">
+						{translations[$language].message}
+					</label>
 				</FadeIn>
 
 				<FadeIn>
-				<textarea
-					id="msg"
-					rows="5"
-					dir={$language === 'ar' ? 'rtl' : 'ltr'}
-					bind:value={message}
-					placeholder={translations[$language].message_placeholder}
-					class="
-					w-full resize-none
-					rounded-xl
-					border border-[#eadedf]
-					bg-[#fcf8f5]
-					px-4 py-4
-					text-[#6E5A5E]
-					outline-none
-					transition
-					focus:border-[#C48A97]
-				"
-				></textarea>
+					<textarea id="msg" rows="5" class="form-textarea" dir={$language === 'ar' ? 'rtl' : 'ltr'} bind:value={message} placeholder={translations[$language].message_placeholder}></textarea>
 				</FadeIn>
 			</div>
 		{/if}
