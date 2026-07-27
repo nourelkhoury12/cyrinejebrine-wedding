@@ -127,34 +127,6 @@
 		</div>
 
 		<!-- Attendance -->
-		<!-- <div>
-			<FadeIn>
-				<label for="attendance" dir={$language === 'ar' ? 'rtl' : 'ltr'} class="my-4 text-[#b88d93]" >
-					{translations[$language].attendance}
-				</label>
-			</FadeIn>
-
-			<div class="space-y-4">
-				<FadeIn>
-					<label class=" flex cursor-pointer items-center gap-3 rounded-xl border border-[#eadedf] p-4 transition hover:border-[#C48A97]">
-						<input type="radio" value="accept" name="attendance" bind:group={attendance} disabled={submitting} class="h-5 w-5 accent-[#C48A97]"/>
-						<span class="text-[#6E5A5E]">
-							{translations[$language].accept}
-						</span>
-					</label>
-				</FadeIn>
-
-				<FadeIn>
-					<label class="flex cursor-pointer items-center gap-3 rounded-xl border border-[#eadedf] p-4 transition hover:border-[#C48A97]">
-						<input type="radio" value="reject" name="attendance" bind:group={attendance} disabled={submitting} class="h-5 w-5 accent-[#C48A97]"/>
-						<span class="text-[#6E5A5E]">
-							{translations[$language].decline}
-						</span>
-					</label>
-				</FadeIn>
-			</div>
-		</div> -->
-
 		<div class="attendance-tabs">
 			<button
 				type="button"
