@@ -6,10 +6,15 @@
 	--secondary: #b28287;
 	--accent: #c48b8b;
 }
-
+/* 
 body {
 	font-family: Georgia, "Times New Roman", serif;
-}
+} */
+
+ 
+body {
+	font-family: "Cormorant Garamond", serif;
+} 
 
 h2{
 	color: var(--primary);
