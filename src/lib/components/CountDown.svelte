@@ -43,15 +43,15 @@
     });
 </script>
 
-<div class="w-full bg-white text-center pt-16 pb-4 px-4 overflow-hidden">
+<div class="w-full text-center pt-16 pb-4 px-4 overflow-hidden">
     <FadeIn>
-        <h2 class="text-2xl sm:text-3xl ">
+        <h1 class="heading-1 text-2xl sm:text-3xl ">
             {translations[$language].count}<br />{translations[$language].day}
-        </h2>
+        </h1>
     </FadeIn>
 
     <FadeIn>
-        <p class="h5 mt-3 mb-8 max-w-xs mx-auto">
+        <p class="heading-2 mt-3 mb-8">
             {translations[$language].celebration}
         </p>
     </FadeIn>
@@ -59,22 +59,22 @@
     <FadeIn>
         <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto mb-6 relative z-10">
             <div class="flex flex-col items-center">
-                <span class="h4">{days}</span>
+                <span class="heading-5">{days}</span>
                 <span class="subtitle">{translations[$language].days}</span>
             </div>
 
             <div class="flex flex-col items-center">
-                <span class="h4">{hours}</span>
+                <span class="heading-5">{hours}</span>
                 <span class="subtitle">{translations[$language].hours}</span>
             </div>
 
             <div class="flex flex-col items-center">
-                <span class="h4">{minutes}</span>
+                <span class="heading-5">{minutes}</span>
                 <span class="subtitle">{translations[$language].minutes}</span>
             </div>
 
             <div class="flex flex-col items-center">
-                <span class="h4">{seconds}</span>
+                <span class="heading-5">{seconds}</span>
                 <span class="subtitle">{translations[$language].seconds}</span>
             </div>
         </div>

@@ -4,19 +4,18 @@
 	import { language } from "$lib/stores/languages";
     import { translations } from "$lib/i18n/translations";
 </script>
-<div class="mx-auto max-w-3xl items-center text-center   bg-white p-10 shadow-[0_20px_50px_rgba(196,138,151,0.12)]">
+<div class="mx-auto max-w-3xl items-center text-center  p-10 shadow-[0_20px_50px_rgba(196,138,151,0.12)]">
 	<FadeIn>
-		<h2 class="text-2xl sm:text-3xl mb-2">
+		<h1 class="heading-1 text-2xl sm:text-3xl">
 			 {translations[$language].wedding_list}
-		</h2>
+		</h1>
 	</FadeIn>
 
 	<FadeIn>
-		<p class="mb-6 text-lg h5">
+		<p class="heading-2 mt-3 mb-8">
 			 {translations[$language].marriage_text}
 		</p>
 	</FadeIn>
-
 
 	<div class="grid gap-6">
 		<div class="grid gap-8 pt-2 text-center">
@@ -27,7 +26,7 @@
 					</div>
 				</FadeIn>
 				<FadeIn>
-					<p class="text-lg h5">
+					<p class="heading-2">
 						{translations[$language].wish_money}
 					</p>
 				</FadeIn>

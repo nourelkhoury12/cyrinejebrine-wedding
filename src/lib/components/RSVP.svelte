@@ -73,9 +73,13 @@ import { language } from "$lib/stores/languages";
 	</FadeIn>
 	
 	<div class="mt-6 text-center">
-		<FadeIn><h2 class="text-2xl sm:text-3xl">{translations[$language].seat}</h2></FadeIn>
 		<FadeIn>
-			<p class="h5">
+			<h1 class="heading-1 text-2xl sm:text-3xl">
+				{translations[$language].seat}
+			</h1>
+		</FadeIn>
+		<FadeIn>
+			<p class="heading-2 mt-3 mb-8">
 				{translations[$language].seat_text}
 			</p>
 		</FadeIn>

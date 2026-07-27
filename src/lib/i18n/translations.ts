@@ -13,7 +13,7 @@ export const translations = {
         minutes: "Minutes",
         seconds: "Seconds",
         wedding_venue:"Wedding Venue",
-        location: "Green Land Akkar -Edbel",
+        location: "Green Land Akkar - Edbel",
         maps: "Open google maps",
         wedding_list:"Wedding List",
         marriage_text: "Your presence at our wedding is the greatest gift we could receive.If you would like to celebrate with a gift, we have prepared our marriage list below.",

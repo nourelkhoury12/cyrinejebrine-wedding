@@ -19,10 +19,18 @@ import { translations } from "$lib/i18n/translations";
 	}: Props = $props();
 </script>
 
-<div class="mx-auto flex max-w-md flex-col items-center p-6 text-center ">
-	<FadeIn><h2 class="mb-2 text-2xl  sm:text-3xl">{translations[$language].wedding_venue}</h2></FadeIn>
+<div class="w-full items-center p-6 text-center ">
+	<FadeIn>
+		<h1 class="heading-1 text-2xl sm:text-3xl">
+			{translations[$language].wedding_venue}
+		</h1>
+	</FadeIn>
 
-	<FadeIn><p class="mb-6 text-lg h5">{translations[$language].location}</p></FadeIn>
+	<FadeIn>
+		<p class="heading-2 mt-3 mb-8">
+			{translations[$language].location}
+		</p>
+	</FadeIn>
 
 	<FadeIn>
 		<div class="mb-8 w-full overflow-hidden rounded-2xl border-2 border-[#e0adad] shadow-lg transition-shadow duration-300 hover:shadow-xl">
@@ -35,7 +43,7 @@ import { translations } from "$lib/i18n/translations";
 			href={googleMapsUrl}
 			target="_blank"
 			rel="noopener noreferrer"
-			class="inline-flex items-center font-serif justify-center gap-2.5 rounded bg-[#c48b8b] px-6 py-3 text-lg  text-white transition-all hover:bg-[#b37878] active:scale-95 shadow-sm"
+			class="anchor-primary"
 		>
 			<LocationIcon height="1.5em" />
 			<span>{translations[$language].maps}</span>
