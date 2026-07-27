@@ -3,7 +3,7 @@
     import { fade } from "svelte/transition";
     import BgImage from "$lib/assets/backgd.png";
     import { language } from "$lib/stores/languages";
-       import { translations } from "$lib/i18n/translations";
+    import { translations } from "$lib/i18n/translations";
 
     let visible = $state(false);
 

@@ -1,7 +1,9 @@
 <script lang="ts">
 import LocationIcon from '@iconify-svelte/mdi/location';
 import FadeIn from "$lib/components/FadeIn.svelte"
-import mapImgSrc from "$lib/assets/map.png"
+import mapImgSrc from "$lib/assets/map.png";
+import { language } from "$lib/stores/languages";
+import { translations } from "$lib/i18n/translations";
 	interface Props {
 		title?: string;
 		subtitle?: string;
@@ -18,9 +20,9 @@ import mapImgSrc from "$lib/assets/map.png"
 </script>
 
 <div class="mx-auto flex max-w-md flex-col items-center p-6 text-center ">
-	<FadeIn><h2 class="mb-2 text-2xl  sm:text-3xl">Wedding Venue</h2></FadeIn>
+	<FadeIn><h2 class="mb-2 text-2xl  sm:text-3xl">{translations[$language].wedding_venue}</h2></FadeIn>
 
-	<FadeIn><p class="mb-6 text-lg h5">Green Land Akkar -Edbel</p></FadeIn>
+	<FadeIn><p class="mb-6 text-lg h5">{translations[$language].location}</p></FadeIn>
 
 	<FadeIn>
 		<div class="mb-8 w-full overflow-hidden rounded-2xl border-2 border-[#e0adad] shadow-lg transition-shadow duration-300 hover:shadow-xl">
@@ -36,7 +38,7 @@ import mapImgSrc from "$lib/assets/map.png"
 			class="inline-flex items-center font-serif justify-center gap-2.5 rounded bg-[#c48b8b] px-6 py-3 text-lg  text-white transition-all hover:bg-[#b37878] active:scale-95 shadow-sm"
 		>
 			<LocationIcon height="1.5em" />
-			<span>Open google maps</span>
+			<span>{translations[$language].maps}</span>
 		</a>
 	</FadeIn>
 </div>
