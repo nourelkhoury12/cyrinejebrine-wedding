@@ -14,7 +14,10 @@ export const translations = {
         seconds: "Seconds",
         wedding_venue:"Wedding Venue",
         location: "Green Land Akkar -Edbel",
-        maps: "Open google maps"
+        maps: "Open google maps",
+        wedding_list:"Wedding List",
+        marriage_text: "Your presence at our wedding is the greatest gift we could receive.If you would like to celebrate with a gift, we have prepared our marriage list below.",
+        wish_money: "Kindly use our wish money account number",
     },
     ar: {
         quote: "لتبق قلوبنا متحدة بالمحبة والرحمة والسلام طوال حياتنا.",
@@ -31,8 +34,9 @@ export const translations = {
         seconds: "ثواني",
         wedding_venue:"مكان الزفاف",
         location: "جرين لاند عكار - إدبل",
-        maps: "افتح خرائط جوجل"
+        maps: "افتح خرائط جوجل",
+        wedding_list:"قائمة الزفاف",
+        marriage_text: "إن حضوركم حفل زفافنا هو أثمن هدية نتلقاها. إذا رغبتم في الاحتفال بهدية، فقد أعددنا قائمة هدايا الزفاف أدناه",
+        wish_money: "يرجى استخدام رقم حساب أموال الأمنيات الخاص بنا",
     }
-
-
 };

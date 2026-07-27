@@ -1,19 +1,19 @@
 <script lang="ts">
     import GiftOutlineIcon from '@iconify-svelte/solar/gift-outline';
 	import FadeIn from '$lib/components/FadeIn.svelte';
+	import { language } from "$lib/stores/languages";
+    import { translations } from "$lib/i18n/translations";
 </script>
 <div class="mx-auto max-w-3xl items-center text-center   bg-white p-10 shadow-[0_20px_50px_rgba(196,138,151,0.12)]">
 	<FadeIn>
 		<h2 class="text-2xl sm:text-3xl mb-2">
-			Liste de Mariage
+			 {translations[$language].wedding_list}
 		</h2>
 	</FadeIn>
 
 	<FadeIn>
 		<p class="mb-6 text-lg h5">
-			Your presence at our wedding is the greatest gift we could receive.
-			If you would like to celebrate with a gift, we have prepared our
-			marriage list below.
+			 {translations[$language].marriage_text}
 		</p>
 	</FadeIn>
 
@@ -28,7 +28,7 @@
 				</FadeIn>
 				<FadeIn>
 					<p class="text-lg h5">
-						Kindly use our wish money account number
+						{translations[$language].wish_money}
 					</p>
 				</FadeIn>
 				<FadeIn>
