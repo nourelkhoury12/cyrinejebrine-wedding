@@ -1,6 +1,8 @@
 <script lang="ts">
 	import chairImg from '$lib/assets/chair.png';
 	import FadeIn from "$lib/components/FadeIn.svelte"
+import { language } from "$lib/stores/languages";
+    import { translations } from "$lib/i18n/translations";
 
 	let fullName = $state('');
 	let phoneNumber = $state('');
@@ -72,11 +74,10 @@
 	</FadeIn>
 	
 	<div class="mt-6 text-center">
-		<FadeIn><h2 class="text-2xl sm:text-3xl">Reserve Your Seat</h2></FadeIn>
+		<FadeIn><h2 class="text-2xl sm:text-3xl">{translations[$language].seat}</h2></FadeIn>
 		<FadeIn>
 			<p class="h5">
-				We would be honored to celebrate this beautiful day with you.
-				Please let us know if you'll be joining us.
+				{translations[$language].seat_text}
 			</p>
 		</FadeIn>
 	</div>

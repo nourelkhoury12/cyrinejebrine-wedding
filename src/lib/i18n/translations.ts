@@ -18,6 +18,8 @@ export const translations = {
         wedding_list:"Wedding List",
         marriage_text: "Your presence at our wedding is the greatest gift we could receive.If you would like to celebrate with a gift, we have prepared our marriage list below.",
         wish_money: "Kindly use our wish money account number",
+        seat: "Reserve Your Seat",
+        seat_text:"We would be honored to celebrate this beautiful day with you. Please let us know if you'll be joining us."
     },
     ar: {
         quote: "لتبق قلوبنا متحدة بالمحبة والرحمة والسلام طوال حياتنا.",
@@ -38,5 +40,7 @@ export const translations = {
         wedding_list:"قائمة الزفاف",
         marriage_text: "إن حضوركم حفل زفافنا هو أثمن هدية نتلقاها. إذا رغبتم في الاحتفال بهدية، فقد أعددنا قائمة هدايا الزفاف أدناه",
         wish_money: "يرجى استخدام رقم حساب أموال الأمنيات الخاص بنا",
+        seat: "احجز مقعدك",
+        seat_text: "سيسعدنا ويشرفنا أن نحتفل بهذا اليوم الجميل معكم. يرجى إعلامنا ما إذا كنتم ستشاركوننا الاحتفال."
     }
 };
