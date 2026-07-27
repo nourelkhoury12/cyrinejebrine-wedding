@@ -178,7 +178,7 @@
 		{#if attendance === 'accept'}
 			<div>
 				<FadeIn>
-					<label dir={$language === 'ar' ? 'rtl' : 'ltr'} for="msg" class="mb-2 block text-lg font-serif text-[#A96B79]">
+					<label dir={$language === 'ar' ? 'rtl' : 'ltr'} for="msg" class="mb-2 block font-serif text-[#A96B79]">
 						{translations[$language].message}
 					</label>
 				</FadeIn>
