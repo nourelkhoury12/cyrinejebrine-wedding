@@ -19,7 +19,20 @@ export const translations = {
         marriage_text: "Your presence at our wedding is the greatest gift we could receive.If you would like to celebrate with a gift, we have prepared our marriage list below.",
         wish_money: "Kindly use our wish money account number",
         seat: "Reserve Your Seat",
-        seat_text:"We would be honored to celebrate this beautiful day with you. Please let us know if you'll be joining us."
+        seat_text:"We would be honored to celebrate this beautiful day with you. Please let us know if you'll be joining us.",
+        full_name:"Full Name",
+        phone_number: "Phone number",
+        email: "Email(Optional)",
+        attendance: "Attendance",
+        accept: "Jofully Aceept",
+        decline: "Regretfully decline",
+        guests: "Number of Guests",
+        guest: "Guest",
+        guests_text: "Guests",
+        message: "Message to the Couple",
+        message_placeholder: "Share your wishes with the happy couple...",
+        submitting: "submitting...",
+        confirm: "Confirm Your RSVP"
     },
     ar: {
         quote: "لتبق قلوبنا متحدة بالمحبة والرحمة والسلام طوال حياتنا.",
@@ -41,6 +54,19 @@ export const translations = {
         marriage_text: "إن حضوركم حفل زفافنا هو أثمن هدية نتلقاها. إذا رغبتم في الاحتفال بهدية، فقد أعددنا قائمة هدايا الزفاف أدناه",
         wish_money: "يرجى استخدام رقم حساب أموال الأمنيات الخاص بنا",
         seat: "احجز مقعدك",
-        seat_text: "سيسعدنا ويشرفنا أن نحتفل بهذا اليوم الجميل معكم. يرجى إعلامنا ما إذا كنتم ستشاركوننا الاحتفال."
+        seat_text: "سيسعدنا ويشرفنا أن نحتفل بهذا اليوم الجميل معكم. يرجى إعلامنا ما إذا كنتم ستشاركوننا الاحتفال.",
+        full_name: "الاسم الكامل",
+        phone_number: "رقم الهاتف",
+        email: "البريد الإلكتروني (اختياري)",
+        attendance: "حضور",
+        accept:"مقبول",
+        decline: "أعتذر عن عدم القبول",
+        guests: "عدد الضيوف",
+        guest: "ضيف",
+        guests_text: "الضيوف",
+        message: "رسالة إلى العروسين",
+        message_placeholder: "شارك العروسين السعيدين أمنياتك...",
+        submitting: "ارسال...",
+        confirm: "تأكيد الحضور"
     }
 };
