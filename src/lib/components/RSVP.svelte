@@ -127,7 +127,7 @@
 		</div>
 
 		<!-- Attendance -->
-		<div>
+		<!-- <div>
 			<FadeIn>
 				<label for="attendance" dir={$language === 'ar' ? 'rtl' : 'ltr'} class="my-4 text-[#b88d93]" >
 					{translations[$language].attendance}
@@ -153,6 +153,26 @@
 					</label>
 				</FadeIn>
 			</div>
+		</div> -->
+
+		<div class="attendance-tabs">
+			<button
+				type="button"
+				class:active={attendance === 'accept'}
+				onclick={() => (attendance = 'accept')}
+				disabled={submitting}
+			>
+				{translations[$language].accept}
+			</button>
+
+			<button
+				type="button"
+				class:active={attendance === 'reject'}
+				onclick={() => (attendance = 'reject')}
+				disabled={submitting}
+			>
+				{translations[$language].decline}
+			</button>
 		</div>
 		
 		<!-- NUMBER OF GUESTS -->

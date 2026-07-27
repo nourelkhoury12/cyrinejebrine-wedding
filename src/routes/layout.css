@@ -24,12 +24,6 @@ body {
 	line-height:  1.625 ;
 }
 
-.h4{
-	font-size: 1.5rem; 
-	font-weight: 400; 
-	color: var(--primary)
-}
-
 .heading-5{
     font-size: 1.5rem; 
 	font-weight: 400; 
@@ -207,4 +201,44 @@ button:active {
         min-width:850px;
     }
 
+}
+
+/*RSVP Styles*/
+
+.attendance-tabs {
+	display: flex;
+	width: 100%;
+	border: 1px solid #eadedf;
+	border-radius: 999px;
+	overflow: hidden;
+	background: #fcf8f5;
+}
+
+.attendance-tabs button {
+	flex: 1;
+	height: 58px;
+
+	border: none;
+	background: transparent;
+	color: #6e5a5e;
+
+	font: inherit;
+	font-size: 1rem;
+	font-weight: 400;
+	text-align: center;
+
+	cursor: pointer;
+	white-space: nowrap;
+
+	padding: 0;
+}
+
+.attendance-tabs button.active {
+	background: #c48a97;
+	color: white;
+}
+
+.attendance-tabs button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
 }
