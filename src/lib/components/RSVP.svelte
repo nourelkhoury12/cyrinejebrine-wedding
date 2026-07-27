@@ -174,13 +174,7 @@ import { language } from "$lib/stores/languages";
 		<div class="relative">
 
 		<FadeIn>
-
-		<input
-			type="email"
-			id="email"
-			placeholder=" "
-			disabled={submitting}
-			bind:value={email}
+		<input type="email" id="email" placeholder=" " disabled={submitting} bind:value={email}
 			class="
 			peer w-full bg-transparent
 			border-b-2 border-[#D9BCC4]
@@ -220,29 +214,25 @@ import { language } from "$lib/stores/languages";
 		<div>
 
 			<FadeIn>
-
-			<h3 class="mb-4 text-xl font-serif text-[#A96B79]">
-				{translations[$language].attendance}
-			</h3>
-
+				<h3 dir={$language === 'ar' ? 'rtl' : 'ltr'} class="mb-4 text-xl font-serif text-[#A96B79]" >
+					{translations[$language].attendance}
+				</h3>
 			</FadeIn>
 
 			<div class="space-y-4">
+				<FadeIn>
 
-
-			<FadeIn>
-
-			<label
-				class="
-				flex cursor-pointer
-				items-center gap-3
-				rounded-xl
-				border border-[#eadedf]
-				p-4
-				transition
-				hover:border-[#C48A97]
-			"
-			>
+					<label
+						class="
+						flex cursor-pointer
+						items-center gap-3
+						rounded-xl
+						border border-[#eadedf]
+						p-4
+						transition
+						hover:border-[#C48A97]
+					"
+					>
 
 			<input
 				type="radio"
@@ -307,7 +297,7 @@ import { language } from "$lib/stores/languages";
 		{#if attendance === 'accept'}
 			<div>
 				<FadeIn>
-					<label for="guests" class="mb-2 block text-lg font-serif text-[#A96B79]">
+					<label dir={$language === 'ar' ? 'rtl' : 'ltr'} for="guests" class="mb-2 block text-lg font-serif text-[#A96B79]">
 						{translations[$language].guests}
 					</label>
 				</FadeIn>
@@ -337,7 +327,7 @@ import { language } from "$lib/stores/languages";
 		{#if attendance === 'accept'}
 			<div>
 				<FadeIn>
-				<label for="msg" class="mb-2 block text-lg font-serif text-[#A96B79]">
+				<label dir={$language === 'ar' ? 'rtl' : 'ltr'} for="msg" class="mb-2 block text-lg font-serif text-[#A96B79]">
 					{translations[$language].message}
 				</label>
 				</FadeIn>
@@ -346,6 +336,7 @@ import { language } from "$lib/stores/languages";
 				<textarea
 					id="msg"
 					rows="5"
+					dir={$language === 'ar' ? 'rtl' : 'ltr'}
 					bind:value={message}
 					placeholder={translations[$language].message_placeholder}
 					class="
