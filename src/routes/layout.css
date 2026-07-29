@@ -48,7 +48,7 @@ body {
 }
 
 .anchor-primary:hover {
-	background-color: #b37878;
+	background-color:var(--accent);
 }
 
 .anchor-primary:active {
@@ -63,7 +63,7 @@ body {
 	width: 100%;
 	background: transparent;
 	border: none;
-	border-bottom: 2px solid #d9bcc4;
+	border-bottom: 2px solid var(--accent);
 	padding: 1.5rem 0 0.5rem;
 	color: #5d4d50;
 	outline: none;
@@ -77,7 +77,7 @@ body {
 .form-label {
 	position: absolute;
 	top: 1rem;
-	color: #b88d93;
+	color: var(--accent);
 	transition: transform 0.25s ease, scale 0.25s ease;
 	transform-origin: left top;
 	pointer-events: none;
@@ -114,7 +114,7 @@ body {
 
 .form-select:focus,
 .form-textarea:focus {
-	border-color: #c48a97;
+	border-color: var(--accent);
 }
 
 .form-textarea {
@@ -144,7 +144,7 @@ button {
     gap: 0.5rem; 
     border: none;
     border-radius: 0.25rem; 
-    background-color: #c48b8b;
+    background-color: var(--accent);
     padding: 0.75rem 0;
     font-size: 1.125rem; 
     font-weight: 400;
@@ -234,7 +234,7 @@ button:active {
 }
 
 .attendance-tabs button.active {
-	background: #c48a97;
+	background: var(--accent);
 	color: white;
 }
 

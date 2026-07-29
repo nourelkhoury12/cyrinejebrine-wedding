@@ -219,7 +219,7 @@
 		<!-- Submit -->
 		<div class="pt-4">
 			<FadeIn>
-			<button type="submit" class="w-full rounded-full bg-[#C48A97] py-4 text-lg font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#B37786] hover:shadow-xl">
+			<button type="submit">
 				{#if submitting}
 					{translations[$language].submitting}
 				{:else}
