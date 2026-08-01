@@ -11,27 +11,33 @@
     let music: HTMLAudioElement | null = null;
     let isMuted = $state(false);
 
-    function toggleMute() {
-        if (!music) return;
+    let hasStarted = $state(false);
 
-        music.muted = !music.muted;
-        isMuted = music.muted;
+function toggleMute() {
+    if (!music) return;
 
-        console.log("Muted:", music.muted);
+    if (!hasStarted) {
+        // first tap: start playback
+        music.play().catch(() => console.log("Play failed"));
+        hasStarted = true;
+        isMuted = false;
+        return;
     }
 
-    onMount(() => {
-        history.scrollRestoration = "manual";
-        window.scrollTo(0, 0);
+    music.muted = !music.muted;
+    isMuted = music.muted;
+}
 
-        music = new Audio("/wedding.mp3");
-        music.loop = true;
-        music.volume = 0.4;
 
-        music.play().catch(() => {
-            console.log("Autoplay blocked. User needs to click the button.");
-        });
-    });
+  onMount(() => {
+    history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+
+    music = new Audio("/wedding.mp3");
+    music.loop = true;
+    music.volume = 0.4;
+    // no auto-play call here — wait for user interaction
+});
 
     onDestroy(() => {
         if (music) {
