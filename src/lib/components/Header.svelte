@@ -1,205 +1,171 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { fade } from "svelte/transition";
-   
-    import { language } from "$lib/stores/languages";
-    import { translations } from "$lib/i18n/translations";
-import bgImage from "$lib/assets/backgd.png"
-    let visible = $state(false);
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
-    onMount(() => {
-        visible = true;
-    });
+	import { language } from '$lib/stores/languages';
+
+	// Your two invitation images
+	import englishInvitation from '$lib/assets/envEn.png';
+	import arabicInvitation from '$lib/assets/enAr.png';
+
+	let visible = $state(false);
+
+	onMount(() => {
+		visible = true;
+	});
 </script>
 
 {#if visible}
-<div in:fade={{ duration: 3000 }} style={`background-image: url(${bgImage});`} class="hero mx-auto  max-w-3xl items-center text-center  p-10 shadow-[0_20px_50px_rgba(196,138,151,0.12)]">
-    <div class="top-bar">
-        <div class="language">
-            <span class:active={$language === "en"} onclick={() => language.set("en")}>
-                En
-            </span>
-            <span class:active={$language === "ar"} onclick={() => language.set("ar")}>
-                Ar
-            </span>
-        </div>
-    </div>
+	<div class="invitation-page" in:fade={{ duration: 800 }}>
+		<!-- Language switch -->
+		<div class="top-bar">
+			<div class="language-switch gap-2">
+				<button
+					type="button"
+					class:active={$language === 'en'}
+					onclick={() => language.set('en')}
+					aria-label="Switch to English"
+				>
+					En
+				</button>
 
-    <div class="center ">
-        <div class="glass py-24 items-center justify-center space-y-12">
-        {#if $language === "en"}
-            <p class="quote text-lg text-[#ad676e]">{translations[$language].quote}</p>
-            <div class="names text-[100px] text-[#ad676e]">
-                <h1>{translations[$language].jebrine}</h1>
-                <div class="and">{translations[$language].and}</div>
-                <h1>{translations[$language].cyrine}</h1>
-            </div>
-            <div class="date ">
-                <p>{translations[$language].this_will_happen}</p>
-                <div class="divider"></div>
-                <h2>{translations[$language].sunday}</h2>
-                <div class="divider"></div>
-                <h3>13&nbsp;&nbsp;•&nbsp;&nbsp;9&nbsp;&nbsp;•&nbsp;&nbsp;2026</h3>
-            </div>
-        {:else}
-            <div class="arabic-invitation" dir="rtl">
-	<p class="arabic-quote">
-		نبقى قلوبًا متحدة بالمحبة والرحمة والسلام
-		<br />
-		طوال حياتنا
-	</p>
+				
+				<button
+					type="button"
+					class:active={$language === 'ar'}
+					onclick={() => language.set('ar')}
+					aria-label="Switch to Arabic"
+				>
+					Ar
+				</button>
+			</div>
+		</div>
 
-	<div class="arabic-names">
-		<h1>جبريل</h1>
-
-		<span class="arabic-and">و</span>
-
-		<h1>سيرين</h1>
+		<!-- Invitation image -->
+		<img
+			src={$language === 'ar' ? arabicInvitation : englishInvitation}
+			alt={$language === 'ar'
+				? 'دعوة زفاف جبرين وسيرين'
+				: 'Jebrine and Cyrine wedding invitation'}
+			class="invitation-image"
+		/>
 	</div>
-
-	<div class="arabic-date">
-		<p class="celebration">سيحدث هذا</p>
-
-		<div class="small-divider"></div>
-
-		<p class="day">الأحد</p>
-
-		<p class="date">١٣ • ٩ • ٢٠٢٦</p>
-	</div>
-</div>
-        {/if}
-        </div>
-    </div>
-</div>
 {/if}
 
-
 <style>
-.arabic-invitation {
-	direction: rtl;
-	text-align: center;
-}
+	/* Main page */
+	.invitation-page {
+		position: relative;
 
-.arabic-quote {
-	margin: 0 auto;
+		width: 100%;
+		max-width: 430px;
+		min-height: 100vh;
 
-	font-family: 'Amiri', serif;
-	font-size: clamp(1.25rem, 4vw, 1.7rem);
-	font-weight: 400;
-	line-height: 1.8;
+		margin: 0 auto;
 
-	color: #8f5a60;
-}
+		overflow: hidden;
 
-.arabic-names {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+		background: #f8f2ef;
 
-	margin-top: 3.5rem;
-}
+		box-shadow:
+			0 20px 50px rgba(130, 80, 90, 0.14);
+	}
 
-.arabic-names h1 {
-	margin: 0;
+	/* Invitation image */
+	.invitation-image {
+		display: block;
 
-	font-family: 'Aref Ruqaa', 'Amiri', serif;
-	font-size: clamp(4.8rem, 15vw, 7.5rem);
-	font-weight: 400;
-	line-height: 0.9;
+		width: 100%;
+		height: 100vh;
 
-	color: #9d6268;
+		object-fit: cover;
+		object-position: center;
 
-	text-shadow:
-		0 2px 12px rgba(255, 255, 255, 0.7);
-}
+		user-select: none;
 
-.arabic-and {
-	margin: 1rem 0;
+		transition:
+			opacity 0.4s ease,
+			transform 0.4s ease;
+	}
 
-	font-family: 'Amiri', serif;
-	font-size: 3rem;
-	font-weight: 400;
+	/* Language button */
+	.top-bar {
+		position: absolute;
 
-	color: #bc8589;
-}
+		top: 30px;
+		right: 18px;
 
-.arabic-date {
-	margin-top: 4.5rem;
+		z-index: 10;
+	}
 
-	font-family: 'Amiri', serif;
-	color: #75464c;
-}
+	.language-switch {
+		display: flex;
+		align-items: center;
 
-.celebration {
-	margin: 0;
+		padding: 5px 8px;
 
-	font-size: 1.3rem;
-	font-weight: 400;
-}
+		background: rgba(255, 255, 255, 0.9);
 
-.small-divider {
-	width: 55px;
-	height: 1px;
+		border: 1px solid rgba(255, 255, 255, 0.8);
+		border-radius: 999px;
 
-	margin: 0.8rem auto 1.2rem;
+		box-shadow:
+			0 10px 25px rgba(75, 45, 45, 0.16);
 
-	background: rgba(157, 98, 104, 0.45);
-}
+		/* Keep this commented if you do not want blur */
+		/* backdrop-filter: blur(12px); */
+	}
 
-.day {
-	margin: 0 0 0.7rem;
+	.language-switch button {
+		padding: 8px 14px;
 
-	font-size: 1.7rem;
-	font-weight: 500;
-}
+		border: none;
+		border-radius: 999px;
 
-.date {
-	margin: 0;
+		background: transparent;
 
-	font-family: 'Amiri', serif;
-	font-size: 1.3rem;
-	letter-spacing: 0.15em;
-}
-.hero {
-  
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+		cursor: pointer;
 
-.top-bar {
-    display: flex;
-    justify-content: flex-end;
-}
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 0.85rem;
 
-.language {
-    display: flex;
-    gap: 6px;
+		color: #9c6268;
 
-    padding: 6px;
+		transition:
+			background 0.25s ease,
+			color 0.25s ease;
+	}
 
-    background: rgba(255, 255, 255, 0.9);
+	.language-switch button:hover {
+		background: rgba(157, 98, 104, 0.08);
+	}
 
-    border-radius: 999px;
+	.language-switch button.active {
+		color: white;
+        background-color: var(--primary);
+		font-weight: 600;
+	}
 
-    backdrop-filter: blur(15px);
+	.language-divider {
+		width: 1px;
+		height: 18px;
 
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.15);
-}
+		background: rgba(150, 90, 95, 0.35);
+	}
 
-.language span {
-    padding: 8px 18px;
+	/* Mobile */
+	@media (max-width: 480px) {
+		.invitation-page {
+			max-width: 100%;
+		}
 
-    border-radius: 999px;
+		.top-bar {
+			top: 16px;
+			right: 16px;
+		}
 
-    cursor: pointer;
-
-    font-size: 14px;
-
-    color: #B06A73;
-
-    transition: 0.25s;
-}
+		.invitation-image {
+			min-height: 100svh;
+		}
+	}
 </style>
