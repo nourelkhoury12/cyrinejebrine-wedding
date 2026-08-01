@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
 
     import CountDown from "$lib/components/CountDown.svelte";
     import Footer from "$lib/components/Footer.svelte";
@@ -8,12 +8,36 @@
     import RSVP from "$lib/components/RSVP.svelte";
     import Venue from "$lib/components/Venue.svelte";
 
-    onMount(() => {
-        if ("scrollRestoration" in history) {
-            history.scrollRestoration = "manual";
-        }
+    let music: HTMLAudioElement | null = null;
+    let isMuted = $state(false);
 
+    function toggleMute() {
+        if (!music) return;
+
+        music.muted = !music.muted;
+        isMuted = music.muted;
+
+        console.log("Muted:", music.muted);
+    }
+
+    onMount(() => {
+        history.scrollRestoration = "manual";
         window.scrollTo(0, 0);
+
+        music = new Audio("/wedding.mp3");
+        music.loop = true;
+        music.volume = 0.4;
+
+        music.play().catch(() => {
+            console.log("Autoplay blocked. User needs to click the button.");
+        });
+    });
+
+    onDestroy(() => {
+        if (music) {
+            music.pause();
+            music.src = "";
+        }
     });
 </script>
 
@@ -27,3 +51,26 @@
         <Footer />
     </div>
 </div>
+
+<button
+    onclick={toggleMute}
+    style="width: 56px; height: 56px; min-width: 56px; min-height: 56px;"
+    class="fixed bottom-5 right-5 z-50 rounded-full bg-white shadow-lg hover:shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center border border-neutral-200"
+    aria-label={isMuted ? "Unmute music" : "Mute music"}
+>
+    {#if isMuted}
+        <!-- muted icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-neutral-700 pointer-events-none" color="white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+            <line x1="23" y1="9" x2="17" y2="15" />
+            <line x1="17" y1="9" x2="23" y2="15" />
+        </svg>
+    {:else}
+        <!-- unmuted icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-neutral-700 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        </svg>
+    {/if}
+</button>
