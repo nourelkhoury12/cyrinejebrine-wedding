@@ -48,9 +48,9 @@
 {#if showSplash}
     <button
         onclick={enterSite}
-        class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-neutral-100 gap-4 w-full"
+        class="test fixed inset-0 z-[100] flex flex-col items-center justify-center bg-neutral-100 gap-4 w-full"
     >
-        <span class="text-lg tracking-wide text-neutral-700">Tap to open invitation</span>
+        <span class="text-xl tracking-wide text-neutral-700">Tap to open invitation</span>
         <!-- put your monogram/crest or a nice icon here -->
     </button>
 {/if}
@@ -86,3 +86,4 @@
         </svg>
     {/if}
 </button>
+
