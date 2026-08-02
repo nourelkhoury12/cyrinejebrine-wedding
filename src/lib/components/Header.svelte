@@ -6,7 +6,7 @@
 
 	// Your two invitation images
 	import englishInvitation from '$lib/assets/envEn.png';
-	import arabicInvitation from '$lib/assets/enAr.png';
+	import arabicInvitation from '$lib/assets/envAr.png';
 
 	let visible = $state(false);
 
