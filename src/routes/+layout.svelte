@@ -5,5 +5,30 @@
 	let { children } = $props();
 </script>
 
-<svelte:head></svelte:head>
+<svelte:head>
+	<title>Jebrine &yrine Wedding</title>
+
+	<meta
+		name="description"
+		content="Join  Jebrine & Cyrine's wedding on 13 September 2026 at Green Land Akkar Edbel,Lebanon."
+	/>
+
+
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Jebrine & Cyrine Wedding" />
+	<meta property="og:description" content="13 September 2026 • Green Land, Akkar Edbel, Lebanon"/>
+	<meta property="og:image" content="https://cyrinejebrine-wedding.vercel.app/envEn.png"/>
+	<meta property="og:image:secure_url" content="https://cyrinejebrine-wedding.vercel.app/envEn.png"/>
+
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+
+	<meta property="og:url" content="https://cyrinejebrine-wedding.vercel.app/"/>
+
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:title" content="Ali & Mireille Wedding"/>
+	<meta name="twitter:description" content="13 September 2026 Green Land, Akkar Edbel, Lebanon"/>
+	<meta name="twitter:image" content="https://mireilleali-wedding.vercel.app/envEn.png"/>
+</svelte:head>
 {@render children()}
