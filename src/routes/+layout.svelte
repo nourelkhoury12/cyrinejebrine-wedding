@@ -8,11 +8,7 @@
 <svelte:head>
 	<title>Jebrine &yrine Wedding</title>
 
-	<meta
-		name="description"
-		content="Join  Jebrine & Cyrine's wedding on 13 September 2026 at Green Land Akkar Edbel,Lebanon."
-	/>
-
+	<meta name="description" content="Join  Jebrine & Cyrine's wedding on 13 September 2026 at Green Land Akkar Edbel,Lebanon."	/>
 
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Jebrine & Cyrine Wedding" />
