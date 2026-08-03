@@ -29,8 +29,11 @@ import { translations } from "$lib/i18n/translations";
 	<FadeIn>
 		<p class="heading-2 mt-3 mb-8">
 			{translations[$language].location}
+			<br/>
+			{translations[$language].time}
 		</p>
 	</FadeIn>
+		
 
 	<FadeIn>
 		<div class="mb-8 w-full overflow-hidden rounded-2xl border-2 border-[#e0adad] shadow-lg transition-shadow duration-300 hover:shadow-xl">

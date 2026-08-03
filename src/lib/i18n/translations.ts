@@ -33,7 +33,8 @@ export const translations = {
         message_placeholder: "Share your wishes with the happy couple...",
         submitting: "submitting...",
         confirm: "Confirm Your RSVP",
-        and: "&"
+        and: "&",
+        time:"7:00 PM"
     },
     ar: {
         quote: "لتبق قلوبنا متحدة بالمحبة والرحمة والسلام طوال حياتنا.",
@@ -69,6 +70,7 @@ export const translations = {
         message_placeholder: "شارك العروسين السعيدين أمنياتك...",
         submitting: "ارسال...",
         confirm: "تأكيد الحضور",
-        and: "و"
+        and: "و",
+        time:"السابعة مساءً"
     }
 };
