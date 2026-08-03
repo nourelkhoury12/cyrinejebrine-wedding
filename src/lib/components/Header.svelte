@@ -1,10 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-
 	import { language } from '$lib/stores/languages';
-
-	// Your two invitation images
 	import englishInvitation from '$lib/assets/envEn.png';
 	import arabicInvitation from '$lib/assets/envAr.png';
 
@@ -56,17 +53,12 @@
 	/* Main page */
 	.invitation-page {
 		position: relative;
-
 		width: 100%;
 		max-width: 430px;
 		min-height: 100vh;
-
 		margin: 0 auto;
-
 		overflow: hidden;
-
 		background: #f8f2ef;
-
 		box-shadow:
 			0 20px 50px rgba(130, 80, 90, 0.14);
 	}
@@ -74,63 +66,40 @@
 	/* Invitation image */
 	.invitation-image {
 		display: block;
-
 		width: 100%;
 		height: 100vh;
-
 		object-fit: cover;
 		object-position: center;
-
 		user-select: none;
-
-		transition:
-			opacity 0.4s ease,
-			transform 0.4s ease;
+		transition: opacity 0.4s ease, transform 0.4s ease;
 	}
 
-	/* Language button */
 	.top-bar {
 		position: absolute;
-
 		top: 30px;
 		right: 18px;
-
 		z-index: 10;
 	}
 
 	.language-switch {
 		display: flex;
 		align-items: center;
-
 		padding: 5px 8px;
-
 		background: rgba(255, 255, 255, 0.9);
-
 		border: 1px solid rgba(255, 255, 255, 0.8);
 		border-radius: 999px;
-
-		box-shadow:
-			0 10px 25px rgba(75, 45, 45, 0.16);
-
-		/* Keep this commented if you do not want blur */
-		/* backdrop-filter: blur(12px); */
+		box-shadow:0 10px 25px rgba(75, 45, 45, 0.16);
 	}
 
 	.language-switch button {
 		padding: 8px 14px;
-
 		border: none;
 		border-radius: 999px;
-
 		background: transparent;
-
 		cursor: pointer;
-
 		font-family: Georgia, 'Times New Roman', serif;
 		font-size: 0.85rem;
-
 		color: #9c6268;
-
 		transition:
 			background 0.25s ease,
 			color 0.25s ease;
@@ -144,13 +113,6 @@
 		color: white;
         background-color: var(--primary);
 		font-weight: 600;
-	}
-
-	.language-divider {
-		width: 1px;
-		height: 18px;
-
-		background: rgba(150, 90, 95, 0.35);
 	}
 
 	/* Mobile */
