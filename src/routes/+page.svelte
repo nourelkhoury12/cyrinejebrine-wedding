@@ -1,6 +1,5 @@
 <script lang="ts">
     import { onMount, onDestroy } from "svelte";
-
     import CountDown from "$lib/components/CountDown.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import Header from "$lib/components/Header.svelte";
@@ -31,7 +30,6 @@
     onMount(() => {
         history.scrollRestoration = "manual";
         window.scrollTo(0, 0);
-
         music = new Audio("/wedding.mp3");
         music.loop = true;
         music.volume = 0.4;
@@ -46,12 +44,9 @@
 </script>
 
 {#if showSplash}
-    <button
-        onclick={enterSite}
-        class="test fixed inset-0 z-[100] flex flex-col items-center justify-center bg-neutral-100 gap-4 w-full"
-    >
+    <button onclick={enterSite} class="test fixed inset-0 z-[100] flex flex-col items-center justify-center bg-neutral-100 gap-4 w-full">
         <span class="text-xl tracking-wide text-neutral-700">Tap to open invitation</span>
-        <!-- put your monogram/crest or a nice icon here -->
+        
     </button>
 {/if}
 
