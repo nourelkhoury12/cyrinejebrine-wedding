@@ -12,6 +12,7 @@
     let hasStarted = $state(false);
     let showSplash = $state(true);
 
+    
     function enterSite() {
         showSplash = false;
         if (music && !hasStarted) {
