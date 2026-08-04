@@ -13,8 +13,8 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Jebrine & Cyrine Wedding" />
 	<meta property="og:description" content="13 September 2026 • Green Land, Akkar Edbel, Lebanon"/>
-	<meta property="og:image" content="https://cyrinejebrine-wedding.vercel.app/envEn1.png"/>
-	<meta property="og:image:secure_url" content="https://cyrinejebrine-wedding.vercel.app/envEn1.png"/>
+	<meta property="og:image" content="https://cyrinejebrine-wedding.vercel.app/envEn1.jpeg"/>
+	<meta property="og:image:secure_url" content="https://cyrinejebrine-wedding.vercel.app/envEn1.jpeg"/>
 
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="1200" />
@@ -25,6 +25,6 @@
 	<meta name="twitter:card" content="summary_large_image"/>
 	<meta name="twitter:title" content="Ali & Mireille Wedding"/>
 	<meta name="twitter:description" content="13 September 2026 Green Land, Akkar Edbel, Lebanon"/>
-	<meta name="twitter:image" content="https://mireilleali-wedding.vercel.app/envEn1.png"/>
+	<meta name="twitter:image" content="https://mireilleali-wedding.vercel.app/envEn1.jpeg"/>
 </svelte:head>
 {@render children()}
