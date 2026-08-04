@@ -26,7 +26,7 @@
 				</FadeIn>
 				<FadeIn>
 					<p class="mt-3 text-xl font-semibold text-[#964b54] transition hover:text-[#7c3942]">
-						+961 76 164 688
+						+961 79 164 688
 					</p>
 				</FadeIn>
 			</div>
