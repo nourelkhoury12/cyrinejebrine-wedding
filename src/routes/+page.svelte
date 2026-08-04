@@ -1,29 +1,45 @@
 <script lang="ts">
     import { onMount, onDestroy } from "svelte";
-    import CountDown from "$lib/components/CountDown.svelte";
-    import Footer from "$lib/components/Footer.svelte";
+
     import Header from "$lib/components/Header.svelte";
+    import CountDown from "$lib/components/CountDown.svelte";
+    import Venue from "$lib/components/Venue.svelte";
     import MarriageList from "$lib/components/MarriageList.svelte";
     import RSVP from "$lib/components/RSVP.svelte";
-    import Venue from "$lib/components/Venue.svelte";
+    import Footer from "$lib/components/Footer.svelte";
+
+    import InvitationImage from "$lib/assets/cart.png";
 
     let music: HTMLAudioElement | null = null;
+
     let isMuted = $state(false);
     let hasStarted = $state(false);
     let showSplash = $state(true);
+    let isOpening = $state(false);
 
-    
-    function enterSite() {
-        showSplash = false;
+    async function enterSite() {
+        if (isOpening) return;
+
+        isOpening = true;
+
         if (music && !hasStarted) {
-            music.play().catch(() => console.log("Play failed"));
-            hasStarted = true;
-            isMuted = false;
+            try {
+                await music.play();
+                hasStarted = true;
+                isMuted = false;
+            } catch (err) {
+                console.log("Play failed", err);
+            }
         }
+
+        await new Promise((resolve) => setTimeout(resolve, 1200));
+
+        showSplash = false;
     }
 
     function toggleMute() {
         if (!music) return;
+
         music.muted = !music.muted;
         isMuted = music.muted;
     }
@@ -31,6 +47,7 @@
     onMount(() => {
         history.scrollRestoration = "manual";
         window.scrollTo(0, 0);
+
         music = new Audio("/wedding.mp3");
         music.loop = true;
         music.volume = 0.4;
@@ -45,14 +62,23 @@
 </script>
 
 {#if showSplash}
-    <button onclick={enterSite} class="test fixed inset-0 z-[100] flex flex-col items-center justify-center bg-neutral-100 gap-4 w-full">
-        <span class="text-xl tracking-wide text-neutral-700">Tap to open invitation</span>
-        
-    </button>
+<button
+    onclick={enterSite}
+    class:is-opening={isOpening}
+    class="splash"
+    aria-label="Open invitation"
+>
+    <img
+        src={InvitationImage}
+        alt="Wedding Invitation"
+    />
+
+    <div class="light"></div>
+</button>
 {/if}
 
-<div class="min-h-screen bg-neutral-100 p-0 md:py-10 md:px-6 flex flex-col items-center">
-    <div class="w-full max-w-md bg-white shadow-2xl rounded-none md:rounded-lg overflow-hidden">
+<div class="min-h-screen bg-neutral-100 p-0 md:px-6 md:py-10 flex justify-center">
+    <div class="w-full max-w-md overflow-hidden bg-white shadow-2xl md:rounded-lg">
         <Header />
         <CountDown />
         <Venue />
@@ -83,3 +109,74 @@
     {/if}
 </button>
 
+<style>
+.splash {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overflow: hidden;
+    border: none;
+    padding: 0;
+    background: white;
+    cursor: pointer;
+}
+
+.splash img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition:
+        transform 1.2s ease,
+        opacity 1.2s ease,
+        filter 1.2s ease;
+}
+
+.light {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0) 10%,
+            rgba(255,255,255,.2) 45%,
+            rgba(255,255,255,.95) 100%
+        );
+
+    opacity: 0;
+}
+
+.splash.is-opening img {
+    transform: scale(1.05);
+    opacity: 0;
+    filter: brightness(1.5);
+}
+
+.splash.is-opening .light {
+    animation: glow 1.2s ease forwards;
+}
+
+@keyframes glow {
+
+    0% {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    40% {
+        opacity: .35;
+    }
+
+    70% {
+        opacity: .75;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+
+}
+</style>
