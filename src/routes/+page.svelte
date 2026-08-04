@@ -17,6 +17,7 @@
     let showSplash = $state(true);
     let isOpening = $state(false);
 
+    
     async function enterSite() {
         if (isOpening) return;
 
@@ -62,19 +63,18 @@
 </script>
 
 {#if showSplash}
-<button
-    onclick={enterSite}
-    class:is-opening={isOpening}
-    class="splash"
-    aria-label="Open invitation"
->
-    <img
-        src={InvitationImage}
-        alt="Wedding Invitation"
-    />
+    <button onclick={enterSite}
+        class:is-opening={isOpening}
+        class="splash"
+        aria-label="Open invitation"
+    >
+        <img
+            src="/cart.png"
+            alt="Wedding Invitation"
+        />
 
-    <div class="light"></div>
-</button>
+        <div class="light"></div>
+    </button>
 {/if}
 
 <div class="min-h-screen bg-neutral-100 p-0 md:px-6 md:py-10 flex justify-center">
