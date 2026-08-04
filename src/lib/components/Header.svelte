@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { language } from '$lib/stores/languages';
-	import englishInvitation from '$lib/assets/envEn1.jpeg';
+	import englishInvitation from '$lib/assets/envEn1.png';
 	import arabicInvitation from '$lib/assets/envAr2.png';
 
 	let visible = $state(false);
