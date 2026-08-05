@@ -8,16 +8,19 @@
     import RSVP from "$lib/components/RSVP.svelte";
     import Footer from "$lib/components/Footer.svelte";
 
-    import InvitationImage from "$lib/assets/cart.png";
-
     let music: HTMLAudioElement | null = null;
 
     let isMuted = $state(false);
     let hasStarted = $state(false);
+
+    // Loader
+    let imageLoaded = $state(false);
+    let loaderDone = $state(false);
+
+    // Invitation
     let showSplash = $state(true);
     let isOpening = $state(false);
 
-    
     async function enterSite() {
         if (isOpening) return;
 
@@ -29,7 +32,7 @@
                 hasStarted = true;
                 isMuted = false;
             } catch (err) {
-                console.log("Play failed", err);
+                console.log(err);
             }
         }
 
@@ -52,30 +55,54 @@
         music = new Audio("/wedding.mp3");
         music.loop = true;
         music.volume = 0.4;
+
+        const invitation = new Image();
+
+        invitation.onload = () => {
+            imageLoaded = true;
+
+            setTimeout(() => {
+                loaderDone = true;
+            }, 600);
+        };
+
+        invitation.src = "/cart.png";
     });
 
     onDestroy(() => {
         if (music) {
             music.pause();
             music.src = "";
+            music = null;
         }
     });
 </script>
 
-{#if showSplash}
-    <button onclick={enterSite}
-        class:is-opening={isOpening}
-        class="splash"
-        aria-label="Open invitation"
-    >
-        <img
-            src="/cart.png"
-            alt="Wedding Invitation"
-        />
 
-        <div class="light"></div>
-    </button>
+
+{#if !loaderDone}
+<div class="loader-screen">
+    <div class="loader-content">
+        <p class="heading-1 mb-3"> Loading Invitation... </p>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+         <p class="loader-subtitle">
+            You're invited
+        </p>
+    </div>
+</div>
+
+{:else if showSplash}
+<button onclick={enterSite} class="splash" class:is-opening={isOpening} aria-label="Open invitation">
+    <img src="/cart.png" alt="Wedding Invitation"/>
+    <div class="tap-message">
+        <p>Tap to Open</p>
+    </div>
+    <div class="light"></div>
+</button>
 {/if}
+
 
 <div class="min-h-screen bg-neutral-100 p-0 md:px-6 md:py-10 flex justify-center">
     <div class="w-full max-w-md overflow-hidden bg-white shadow-2xl md:rounded-lg">
@@ -88,43 +115,90 @@
     </div>
 </div>
 
-<button
-    onclick={toggleMute}
-    style="width: 56px; height: 56px; min-width: 56px; min-height: 56px;"
-    class="fixed bottom-5 right-5 z-50 rounded-full bg-white shadow-lg hover:shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center border border-neutral-200"
-    aria-label={isMuted ? "Unmute music" : "Mute music"}
->
+<button onclick={toggleMute} aria-label={isMuted ? "Unmute music" : "Mute music"}  class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-neutral-200 bg-white shadow-lg transition-all duration-200 hover:shadow-xl active:scale-95">
     {#if isMuted}
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-neutral-700 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-            <line x1="23" y1="9" x2="17" y2="15" />
-            <line x1="17" y1="9" x2="23" y2="15" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
         </svg>
     {:else}
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-neutral-700 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
         </svg>
     {/if}
 </button>
 
 <style>
-.splash {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    overflow: hidden;
-    border: none;
-    padding: 0;
-    background: white;
-    cursor: pointer;
+
+
+.loader-screen{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.splash img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.loader-content{
+    width:280px;
+    text-align:center;
+}
+
+
+.loader-subtitle{
+    margin-top:18px;
+    font-size:15px;
+    color:#999;
+}
+
+.loader-bar{
+    width:100%;
+    height:3px;
+    background:#ececec;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.loader-progress{
+    width:40%;
+    height:100%;
+    background:#b28287;
+    animation:loading 1.3s linear infinite;
+}
+
+@keyframes loading{
+
+    from{
+        transform:translateX(-150%);
+    }
+
+    to{
+        transform:translateX(320%);
+    }
+
+}
+
+
+.splash{
+    position:fixed;
+    inset:0;
+    z-index:500;
+    overflow:hidden;
+    border:none;
+    background:white;
+    cursor:pointer;
+    padding:0;
+}
+
+.splash img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 
     transition:
         transform 1.2s ease,
@@ -132,50 +206,84 @@
         filter 1.2s ease;
 }
 
-.light {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+.light{
+    position:absolute;
+    inset:0;
 
     background:
         radial-gradient(
             circle,
             rgba(255,255,255,0) 10%,
-            rgba(255,255,255,.2) 45%,
-            rgba(255,255,255,.95) 100%
+            rgba(255,255,255,.25) 45%,
+            rgba(255,255,255,.98) 100%
         );
 
-    opacity: 0;
+    opacity:0;
+    pointer-events:none;
 }
 
-.splash.is-opening img {
-    transform: scale(1.05);
-    opacity: 0;
-    filter: brightness(1.5);
+.splash.is-opening img{
+    transform:scale(1.05);
+    opacity:0;
+    filter:brightness(1.5);
 }
 
-.splash.is-opening .light {
-    animation: glow 1.2s ease forwards;
+.splash.is-opening .light{
+    animation:glow 1.2s forwards ease;
 }
 
-@keyframes glow {
+.tap-message{
+    position:absolute;
+    bottom:90px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    text-align:center;
+    text-shadow:0 2px 10px rgba(0,0,0,.35);
+}
 
-    0% {
-        opacity: 0;
-        transform: scale(.8);
+.tap-message h2{
+    font-size:32px;
+    font-weight:600;
+    margin-bottom:8px;
+    letter-spacing:1px;
+}
+
+.tap-message p{
+    font-size:18px;
+    animation:pulse 1.6s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        opacity:.45;
     }
 
-    40% {
-        opacity: .35;
+    50%{
+        opacity:1;
     }
 
-    70% {
-        opacity: .75;
+}
+
+@keyframes glow{
+
+    0%{
+        opacity:0;
+        transform:scale(.8);
     }
 
-    100% {
-        opacity: 1;
-        transform: scale(1.4);
+    40%{
+        opacity:.35;
+    }
+
+    70%{
+        opacity:.75;
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1.4);
     }
 
 }
